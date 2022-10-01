@@ -1,3 +1,10 @@
 .profile__info {
-  max-width: 336px;
+  display: flex;
+  position: relative;
+ justify-content: center;
+
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: 30px;
+
 }

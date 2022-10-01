@@ -1,26 +1,14 @@
 .footer {
-  display: flex;
-  position: relative;
-  padding: 92px 48px 24px;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-  justify-items: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #545454;
+  text-align: left;
+  margin: 0;
+  padding: 67px 0 60px 200px;
 }
 
 
-@media screen and  (max-width: 1023px) {
-  .footer {
-    padding: 88px 24px 24px;
-
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .footer {
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 64px 0 24px 16px;
-
-  }
-}

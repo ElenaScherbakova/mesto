@@ -1,7 +1,9 @@
 .header__logo {
-  display: flex;
- align-content: flex-start;
+  display: block;
+ justify-content: flex-start;
+  flex-wrap: wrap;
   max-width: 142px;
+  padding-bottom: 41px;
 
 
 
