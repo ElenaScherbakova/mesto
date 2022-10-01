@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+
+  margin: 45px 200px 0;
+
+  border-bottom: 1px solid #545454;
+
+
+}
+

@@ -1,0 +1,20 @@
+.footer__copyright {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #545454;
+  text-align: left;
+  margin: 0;
+
+}
+
+@media screen and (max-width:  767px) {
+  .footer__copyright   {
+    flex-direction: column;
+    text-align: left;
+    line-height: 1;
+  }
+}
