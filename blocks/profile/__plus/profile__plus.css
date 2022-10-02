@@ -1,10 +1,12 @@
 .profile__plus {
-  min-width: 150px;
+  min-width: 50px;
   min-height: 50px;
+  max-width: 150px;
   margin: 0;
   padding: 0;
   background: transparent;
   border: 2px solid #FFFFFF;
   border-radius: 2px;
+  flex-grow: 1;
 
 }
