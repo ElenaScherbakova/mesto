@@ -4,7 +4,8 @@
   row-gap: 20px;
   column-gap: 17px;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 47.25px 200px 0;
+  padding-top: 48px;
+
 
 
 }

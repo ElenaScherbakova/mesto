@@ -1,0 +1,14 @@
+.popup__paragraph {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  margin: 54px 36px 13px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 780px) {
+  .popup__paragraph {
+    margin: 75px 22px 13px;
+  }
+}

@@ -1,0 +1,6 @@
+.popup__close {
+  background: ("../../images/");
+  position: absolute;
+ border: none;
+
+}
