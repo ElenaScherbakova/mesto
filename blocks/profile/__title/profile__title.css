@@ -6,8 +6,11 @@
   color: #FFFFFF;
 }
 
-@media screen and  (max-width:  768px) {
-  .profile__title  {
+@media screen and  (max-width:  450px) {
+  .profile__title {
     font-size: 27px;
     line-height: 33px;
     text-align: center;
+    padding-bottom: 14px;
+  }
+}

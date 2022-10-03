@@ -10,3 +10,12 @@
   flex-grow: 1;
 
 }
+
+@media screen and  (max-width:  450px) {
+  .profile__plus  {
+
+    min-width: 282px;
+    margin: 0 auto;
+    padding-bottom: 36px;
+  }
+}

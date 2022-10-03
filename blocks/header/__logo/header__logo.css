@@ -5,23 +5,15 @@
   max-width: 142px;
   padding-bottom: 41px;
 
-
-
 }
 
 
-
-@media screen and  (max-width: 1024px) {
+@media screen and (max-width: 450px) {
   .header__logo {
+    padding-left: 27px;
+    max-width: 104px;
 
-  }
-}
 
-
-@media screen and (max-width: 780px) {
-  .header__logo {
-
-    max-width: 103.74px;
   }
 }
 

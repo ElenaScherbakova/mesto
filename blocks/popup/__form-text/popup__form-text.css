@@ -5,13 +5,18 @@
   line-height: 22px;
   text-align: center;
   color: #FFFFFF;
+  margin: 48px 36px 37px;
+  background: #000000;
+  border-radius: 2px;
   padding: 14px 124px 18px 125px;
+
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 450px) {
   .popup__form-text{
     font-size: 14px;
     line-height: 17px;
+    margin: 45px 22px 25px;
     padding: 14px 82px;
   }
 }

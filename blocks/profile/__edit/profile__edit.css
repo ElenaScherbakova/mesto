@@ -3,5 +3,13 @@
   padding: 0;
   border: 0;
   background: transparent;
+  cursor: pointer;
 
+}
+
+@media screen and  (max-width:  450px) {
+  .profile__edit {
+    width: 18px;
+    height: 18px;
+  }
 }
