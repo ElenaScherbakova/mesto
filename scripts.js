@@ -1,6 +1,10 @@
+const popup__active = "popup__active"
+
 const openPopupBtn = document.querySelector(".profile__edit");
 const popup = document.querySelector(".popup");
-const popup__active = "popup__active"
+const popupContainer = document.querySelector(".popup__container");
+const popupCloseBtn  = document.querySelector(".popup__close");
+
 
 openPopupBtn.addEventListener("click", () => {
 
@@ -8,8 +12,12 @@ openPopupBtn.addEventListener("click", () => {
 });
 
   popup.addEventListener("click", (event) => {
-    console.log("Клик по модалке");
-  })
+    if(!popupContainer.contains(event.target)  || event.target === popupCloseBtn) {
+      popup.classList.remove(popup__active);
+    }
+
+
+  });
 
 
 
