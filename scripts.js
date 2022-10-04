@@ -2,8 +2,12 @@ const popup__active = "popup__active"
 
 const openPopupBtn = document.querySelector(".profile__edit");
 const popup = document.querySelector(".popup");
-const popupContainer = document.querySelector(".popup__container");
-const popupCloseBtn  = document.querySelector(".popup__close");
+const popupContainer = popup.querySelector(".popup__container");
+const popupCloseBtn  = popup.querySelector(".popup__close");
+const form = document.querySelector(".popup__text");
+const nameInput = document.querySelector(".popup__input_name");
+const nameInput = document.querySelector(".popup__input_avocation");
+
 
 
 openPopupBtn.addEventListener("click", () => {
@@ -20,6 +24,12 @@ openPopupBtn.addEventListener("click", () => {
   });
 
 
+
+  form.addEventListener("submit",() => {
+    event.preventDefault();
+    form.querySelectorAll(".popup__input")
+
+});
 
 
 

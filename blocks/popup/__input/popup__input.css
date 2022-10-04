@@ -1,4 +1,4 @@
-.popup__paragraph {
+.popup__input {
   display: flex;
   font-weight: 400;
   font-size: 14px;
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .popup__paragraph {
+  .popup__input {
     margin: 75px 22px 13px;
   }
 }

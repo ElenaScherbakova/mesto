@@ -11,6 +11,12 @@
 
 }
 
+.profile__plus:hover {
+  opacity: 0.6;
+  transition: opacity ease-in 0.5s;
+}
+
+
 @media screen and  (max-width:  450px) {
   .profile__plus  {
 

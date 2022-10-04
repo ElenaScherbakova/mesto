@@ -8,3 +8,9 @@
   top: -40px;
   cursor: pointer;
 }
+
+
+.popup__close:hover {
+  opacity: 0.6;
+  transition: opacity ease-in 0.5s;
+}
