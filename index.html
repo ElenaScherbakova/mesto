@@ -26,9 +26,11 @@
 
       <!--  profile  -->
       <section class="profile">
-        <img alt="Фото пользователя"
-             class="profile__image"
-             src="./images/profile__image.svg">
+        <div class="profile__foto">
+          <img alt="Фото пользователя"
+               class="profile__image"
+               src="./images/profile__image.svg">
+        </div>
         <div class="profile__info">
           <div class="profile__header-line">
             <span class="profile__title">Жак-Ив Кусто</span>
@@ -147,24 +149,28 @@
       © 2022 Mesto Russia
     </footer>
 
-        <!-- popup -->
-
-   <!--         <section class="popup popup__active">
-
-              <div class="popup__container">
-                <button class="popup__close"></button>
-                <form class="popup__text">
-                  <h2 class="popup__title">Редактировать профиль</h2>
-                  <input placeholder="Имя" type="name" class="popup__input popup__input_name"/>
-                  <input placeholder="О себе" type="about" class="popup__input popup__input_avocation"/>
-                 <button class="popup__form-text" type="submit">Сохранить</button>
-                </form>
-
-              </div>
-
-            </section>-->
 
   </div>
+
+  <!-- popup -->
+
+  <section class="popup">
+
+    <div class="popup__background">
+      <div class="popup__container">
+        <button class="popup__close"></button>
+        <div class="popup__text">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input placeholder="Имя" type="name" class="popup__input popup__input_name"/>
+          <input placeholder="О себе" type="about" class="popup__input popup__input_avocation"/>
+          <button class="popup__form-text" type="submit">Сохранить</button>
+        </div>
+
+      </div>
+    </div>
+
+
+  </section>
 
   <script src="./scripts.js"></script>
 </body>

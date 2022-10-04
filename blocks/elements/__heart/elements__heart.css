@@ -1,6 +1,9 @@
 .elements__heart {
   padding: 25px 15px 31px 0;
   cursor: pointer;
+  width: 22px;
+  height: 19px;
+
 
 }
 

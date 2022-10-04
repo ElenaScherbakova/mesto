@@ -1,0 +1,12 @@
+.profile__foto {
+
+}
+
+@media screen and (max-width: 450px) {
+  .profile__foto   {
+    padding-top: 38px;
+    padding-bottom: 22px;
+
+
+  }
+}

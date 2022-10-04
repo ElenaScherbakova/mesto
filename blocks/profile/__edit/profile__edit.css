@@ -16,7 +16,7 @@
 
 
 @media screen and  (max-width:  450px) {
-  .profile__edit {
+  .profile__edit svg{
     width: 18px;
     height: 18px;
   }

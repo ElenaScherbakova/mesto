@@ -8,7 +8,7 @@
   margin: 48px 36px 37px;
   background: #000000;
   border-radius: 2px;
-  padding: 14px 124px 18px 125px;
+  padding: 14px 0 18px 0;
 
 }
 
@@ -18,7 +18,7 @@
 }
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 850px) {
   .popup__form-text{
     font-size: 14px;
     line-height: 17px;
