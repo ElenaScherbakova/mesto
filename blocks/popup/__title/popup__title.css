@@ -6,6 +6,9 @@
   color: #000000;
   padding: 34px 64px 54px 36px;
   margin: 0 auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
 }
 
