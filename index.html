@@ -6,7 +6,7 @@
         name="viewport">
   <title>Mesto</title>
 
-  <link href="pages/index.css"
+  <link href="./pages/index.css"
         rel="stylesheet">
 </head>
 
@@ -17,7 +17,7 @@
     <header class="header">
       <img alt="Место"
            class="header__logo"
-           src="./images/mesto.png">
+           src="./images/mesto.svg">
 
     </header>
 
@@ -26,23 +26,25 @@
 
       <!--  profile  -->
       <section class="profile">
-        <div class="profile__foto">
-          <img alt="Фото пользователя"
-               class="profile__image"
-               src="./images/profile__image.svg">
-        </div>
+        <!--        <div class="profile__foto">-->
+        <img alt="Фото пользователя"
+             class="profile__image"
+             src="./images/profile__image.svg">
+        <!--        </div>-->
         <div class="profile__info">
           <div class="profile__header-line">
-            <span class="profile__title">Жак-Ив Кусто</span>
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button class="profile__edit">
-              <img src="./images/pencil.svg" alt="Редактировать">
+              <img src="./images/pencil.svg"
+                   alt="Редактировать">
 
             </button>
           </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
         <button class="profile__plus">
-          <img src="./images/plus.svg" alt="Плюс">
+          <img src="./images/plus.svg"
+               alt="Плюс">
         </button>
 
 
@@ -56,7 +58,7 @@
                class="elements__photo"
                src="./images/Kamchatka.jpg">
           <div class="elements__title">
-            <span class="elements__text">Камчатка</span>
+            <h3 class="elements__text">Камчатка</h3>
             <img alt="Сердце"
                  class="elements__heart"
                  src="./images/heart.svg">
@@ -67,7 +69,7 @@
                class="elements__photo"
                src="images/altay.jpg">
           <div class="elements__title">
-            <span class="elements__text">Алтай</span>
+            <h3 class="elements__text">Алтай</h3>
             <img alt="Сердце"
                  class="elements__heart"
                  src="./images/heart.svg">
@@ -78,7 +80,7 @@
                class="elements__photo"
                src="./images/Karelia.jpg">
           <div class="elements__title">
-            <span class="elements__text">Карелия</span>
+            <h3 class="elements__text">Карелия</h3>
             <img alt="Сердце"
                  class="elements__heart"
                  src="./images/heart.svg">
@@ -89,7 +91,7 @@
                class="elements__photo"
                src="./images/Smolensk.jpg">
           <div class="elements__title">
-            <span class="elements__text">Смоленск</span>
+            <h3 class="elements__text">Смоленск</h3>
             <img alt="Сердце"
                  class="elements__heart"
                  src="./images/heart.svg">
@@ -100,7 +102,7 @@
                class="elements__photo"
                src="./images/Dubrovitsy.jpg">
           <div class="elements__title">
-            <span class="elements__text">Дубровицы</span>
+            <h3 class="elements__text">Дубровицы</h3>
             <img alt="Сердце"
                  class="elements__heart"
                  src="./images/heart.svg">
@@ -111,7 +113,7 @@
                class="elements__photo"
                src="./images/Tulinovka.jpg">
           <div class="elements__title">
-            <span class="elements__text">Тулиновка</span>
+            <h3 class="elements__text">Тулиновка</h3>
             <img alt="Сердце"
                  class="elements__heart"
                  src="./images/heart.svg">
@@ -125,9 +127,9 @@
     </main>
 
     <!--  footer  -->
-    <footer class="footer">
+    <footer>
 
-      © 2022 Mesto Russia
+      <p class="footer">© 2022 Mesto Russia</p>
     </footer>
 
 
@@ -135,28 +137,28 @@
 
   <!-- popup -->
 
-  <section class="popup">
+  <div class="popup">
 
-      <div class="popup__container">
-        <button class="popup__close"></button>
-        <div class="popup__text">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <input placeholder="Имя"
-                 name="name"
-                 class="popup__input popup__input_name">
-          <input placeholder="О себе"
-                 name="about"
-                 class="popup__input popup__input_avocation">
-          <button class="popup__form-text"
-                  type="submit">Сохранить
-          </button>
-        </div>
-
+    <div class="popup__container">
+      <button class="popup__close"></button>
+      <div class="popup__text">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input placeholder="Имя"
+               name="name"
+               class="popup__input popup__input_name">
+        <input placeholder="О себе"
+               name="about"
+               class="popup__input popup__input_avocation">
+        <button class="popup__button"
+                type="submit">Сохранить
+        </button>
       </div>
 
+    </div>
 
-  </section>
 
-  <script src="./scripts.js"></script>
+  </div>
+
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
