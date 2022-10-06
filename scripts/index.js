@@ -8,15 +8,15 @@ const nameInputAvocation = document.querySelector(".popup__input_avocation");
 const nameSpan = document.querySelector(".profile__title");
 const saveBtn = document.querySelector(".popup__button");
 const avocationSpan = document.querySelector(".profile__subtitle");
-
-
-openPopupBtn.addEventListener("click", () => {
+const openBtnListener = () => {
   popup.classList.add("popup__opened");
   const name = nameSpan.innerText;
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
   nameInputAvocation.value = avocation;
-});
+}
+
+openPopupBtn.addEventListener("click", openBtnListener);
 
 popupCloseBtn.addEventListener("click", () => {
   popup.classList.remove("popup__opened");
