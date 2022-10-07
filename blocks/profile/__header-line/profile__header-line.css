@@ -2,12 +2,11 @@
   display: flex;
   gap: 18px;
   align-items: baseline;
-
-
-
-
-
-
+  max-width: 336px;
 }
 
-
+@media screen and  (max-width:  450px) {
+  .profile__header-line {
+    max-width: 282px;
+  }
+}

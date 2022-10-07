@@ -12,17 +12,16 @@
 
 }
 
-.popup__form-text :hover {
+.popup__button :hover {
   opacity: 0.8;
   transition: opacity ease-in 0.5s;
 }
 
 
 @media screen and (max-width: 850px) {
-  .popup__form-text{
+  .popup__button{
     font-size: 14px;
     line-height: 17px;
-    margin: 45px 22px 25px;
-    padding: 14px 82px;
+    margin: 45px 0 25px;
   }
 }
