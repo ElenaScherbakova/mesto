@@ -7,7 +7,7 @@ const nameSpan = document.querySelector(".profile__title");
 const avocationSpan = document.querySelector(".profile__subtitle");
 const form  = document.getElementById("submit-form");
 
-const submitListener = (formEvent) => {
+const formSubmitHandler = (formEvent) => {
   formEvent.preventDefault();
   popup.classList.remove("popup__opened");
   const name = nameInputName.value;
@@ -16,11 +16,11 @@ const submitListener = (formEvent) => {
   avocationSpan.innerText = avocation;
 };
 
-const closeBtnListener = () => {
+const closePopup = () => {
   popup.classList.remove("popup__opened");
 };
 
-const openBtnListener = () => {
+const openPopup = () => {
   popup.classList.add("popup__opened");
   const name = nameSpan.innerText;
   const avocation = avocationSpan.innerText;
@@ -28,6 +28,6 @@ const openBtnListener = () => {
   nameInputAvocation.value = avocation;
 };
 
-openPopupBtn.addEventListener("click", openBtnListener);
-popupCloseBtn.addEventListener("click", closeBtnListener);
-form.addEventListener("submit", submitListener);
+openPopupBtn.addEventListener("click", openPopup);
+popupCloseBtn.addEventListener("click", closePopup);
+form.addEventListener("submit", formSubmitHandler);

@@ -7,8 +7,6 @@
   border-bottom:  solid rgba(0, 0, 0, 0.2);
   padding: 0 0 13px 0;
   border-width: 0 0 1px 0;
-
-
 }
 
 
@@ -19,6 +17,5 @@
 @media screen and (max-width: 850px) {
   .popup__input {
     margin-bottom: 13px;
-
   }
 }

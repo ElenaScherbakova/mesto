@@ -3,10 +3,7 @@
   cursor: pointer;
   width: 22px;
   height: 19px;
-
-
 }
-
 
 .elements__heart:hover {
   opacity: 0.6;
