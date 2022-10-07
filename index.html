@@ -34,7 +34,8 @@
         <div class="profile__info">
           <div class="profile__header-line">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit">
+            <button type="button"
+                    class="profile__edit">
               <img src="./images/pencil.svg"
                    alt="Редактировать">
 
@@ -42,7 +43,8 @@
           </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__plus">
+        <button type="button"
+                class="profile__plus">
           <img src="./images/plus.svg"
                alt="Плюс">
         </button>
@@ -59,9 +61,13 @@
                src="./images/Kamchatka.jpg">
           <div class="elements__title">
             <h3 class="elements__text">Камчатка</h3>
-            <img alt="Сердце"
-                 class="elements__heart"
-                 src="./images/heart.svg">
+            <button type="button"
+                    class="elements__like">
+              <img alt="Сердце"
+                   class="elements__heart"
+                   src="./images/heart.svg">
+            </button>
+
           </div>
         </div>
         <div class="elements__element">
@@ -70,9 +76,12 @@
                src="images/altay.jpg">
           <div class="elements__title">
             <h3 class="elements__text">Алтай</h3>
-            <img alt="Сердце"
-                 class="elements__heart"
-                 src="./images/heart.svg">
+            <button type="button"
+                    class="elements__like">
+              <img alt="Сердце"
+                   class="elements__heart"
+                   src="./images/heart.svg">
+            </button>
           </div>
         </div>
         <div class="elements__element">
@@ -81,9 +90,12 @@
                src="./images/Karelia.jpg">
           <div class="elements__title">
             <h3 class="elements__text">Карелия</h3>
-            <img alt="Сердце"
-                 class="elements__heart"
-                 src="./images/heart.svg">
+            <button type="button"
+                    class="elements__like">
+              <img alt="Сердце"
+                   class="elements__heart"
+                   src="./images/heart.svg">
+            </button>
           </div>
         </div>
         <div class="elements__element">
@@ -92,9 +104,12 @@
                src="./images/Smolensk.jpg">
           <div class="elements__title">
             <h3 class="elements__text">Смоленск</h3>
-            <img alt="Сердце"
-                 class="elements__heart"
-                 src="./images/heart.svg">
+            <button type="button"
+                    class="elements__like">
+              <img alt="Сердце"
+                   class="elements__heart"
+                   src="./images/heart.svg">
+            </button>
           </div>
         </div>
         <div class="elements__element">
@@ -103,9 +118,12 @@
                src="./images/Dubrovitsy.jpg">
           <div class="elements__title">
             <h3 class="elements__text">Дубровицы</h3>
-            <img alt="Сердце"
-                 class="elements__heart"
-                 src="./images/heart.svg">
+            <button type="button"
+                    class="elements__like">
+              <img alt="Сердце"
+                   class="elements__heart"
+                   src="./images/heart.svg">
+            </button>
           </div>
         </div>
         <div class="elements__element">
@@ -114,9 +132,12 @@
                src="./images/Tulinovka.jpg">
           <div class="elements__title">
             <h3 class="elements__text">Тулиновка</h3>
-            <img alt="Сердце"
-                 class="elements__heart"
-                 src="./images/heart.svg">
+            <button type="button"
+                    class="elements__like">
+              <img alt="Сердце"
+                   class="elements__heart"
+                   src="./images/heart.svg">
+            </button>
           </div>
         </div>
 
@@ -141,24 +162,21 @@
 
     <div class="popup__container">
       <button class="popup__close"></button>
-      <div class="popup__text">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form id="submit-form">
-          <input placeholder="Имя"
-                 name="name"
-                 class="popup__input popup__input_name">
-          <input placeholder="О себе"
-                 name="about"
-                 class="popup__input popup__input_avocation">
-          <button class="popup__button"
-                  type="submit">Сохранить
-          </button>
-        </form>
-
-      </div>
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form id="submit-form"
+            class="popup__form">
+        <input placeholder="Имя"
+               name="name"
+               class="popup__input popup__input_name">
+        <input placeholder="О себе"
+               name="about"
+               class="popup__input popup__input_avocation popup__input_last">
+        <button class="popup__button"
+                type="submit">Сохранить
+        </button>
+      </form>
 
     </div>
-
 
   </div>
 

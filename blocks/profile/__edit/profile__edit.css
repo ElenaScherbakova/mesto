@@ -1,9 +1,12 @@
 .profile__edit {
   margin: 0;
   padding: 0;
-  border: 0;
+  border: 1px solid #fff;;
   background: transparent;
   cursor: pointer;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 
 }
 
@@ -13,7 +16,7 @@
 }
 
 @media screen and  (max-width:  450px) {
-  .profile__edit svg{
+  .profile__edit {
     width: 18px;
     height: 18px;
   }

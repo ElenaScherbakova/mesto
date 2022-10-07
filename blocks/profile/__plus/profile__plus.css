@@ -1,4 +1,7 @@
 .profile__plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 50px;
   min-height: 50px;
   max-width: 150px;
@@ -8,6 +11,7 @@
   border: 2px solid #FFFFFF;
   border-radius: 2px;
   flex-grow: 1;
+  cursor: pointer;
 
 }
 

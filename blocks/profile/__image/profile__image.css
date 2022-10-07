@@ -8,8 +8,7 @@
 
 @media screen and (max-width: 450px) {
   .profile__image    {
-    padding-top: 38px;
-    padding-bottom: 22px;
+    margin: 38px 0 22px 0;
 
   }
 }

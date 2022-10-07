@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* это необходимое свойство для border-radius */
   border-radius: 10px;
 
- /* max-width: 282px;*/
+
 
 
 }
