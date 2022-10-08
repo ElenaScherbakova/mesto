@@ -6,10 +6,11 @@ const nameInputAvocation = document.getElementById("avocation");
 const nameSpan = document.querySelector(".profile__title");
 const avocationSpan = document.querySelector(".profile__subtitle");
 const form  = document.getElementById("submit-form");
+const likeBtnList = document.querySelectorAll(".elements__like");
 
 const formSubmitHandler = (formEvent) => {
   formEvent.preventDefault();
-  popup.classList.remove("popup__opened");
+  popup.classList.remove("popup_opened");
   const name = nameInputName.value;
   const avocation = nameInputAvocation.value;
   nameSpan.innerText = name;
@@ -17,17 +18,24 @@ const formSubmitHandler = (formEvent) => {
 };
 
 const closePopup = () => {
-  popup.classList.remove("popup__opened");
+  popup.classList.remove("popup_opened");
 };
 
 const openPopup = () => {
-  popup.classList.add("popup__opened");
+  popup.classList.add("popup_opened");
   const name = nameSpan.innerText;
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
   nameInputAvocation.value = avocation;
 };
 
+const markActive = (mouseEvent) => {
+  mouseEvent.target.classList.add("elements__like_active");
+};
+
 openPopupBtn.addEventListener("click", openPopup);
 popupCloseBtn.addEventListener("click", closePopup);
 form.addEventListener("submit", formSubmitHandler);
+likeBtnList.forEach( (likeBtn) => {
+  likeBtn.addEventListener('click', markActive)
+});
