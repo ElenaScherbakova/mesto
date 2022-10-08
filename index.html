@@ -130,8 +130,8 @@
     </main>
 
     <!--  footer  -->
-    <footer>
-      <p class="footer">© 2022 Mesto Russia</p>
+    <footer class="footer">
+      <p class="footer__paragraph">© 2022 Mesto Russia</p>
     </footer>
 
   </div>
@@ -144,7 +144,7 @@
       <button type="button"
               class="popup__close"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form id="submit-form"
+      <form name="submit-form"
             class="popup__form">
         <!--        использовала ID вместо класса в  JS, т.к. ID однозначно указывает на элемент-->
         <input id="name"
@@ -154,7 +154,7 @@
         <input id="avocation"
                placeholder="О себе"
                name="about"
-               class="popup__input popup__input_last">
+               class="popup__input">
         <button class="popup__button"
                 type="submit">Сохранить
         </button>

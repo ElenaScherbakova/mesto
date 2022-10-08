@@ -5,7 +5,7 @@ const nameInputName = document.getElementById("name");
 const nameInputAvocation = document.getElementById("avocation");
 const nameSpan = document.querySelector(".profile__title");
 const avocationSpan = document.querySelector(".profile__subtitle");
-const form  = document.getElementById("submit-form");
+const form  = document.getElementsByName("submit-form");
 const likeBtnList = document.querySelectorAll(".elements__like");
 
 const formSubmitHandler = (formEvent) => {
