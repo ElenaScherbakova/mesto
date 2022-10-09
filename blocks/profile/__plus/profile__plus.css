@@ -1,5 +1,7 @@
 .profile__plus {
+  background-repeat: no-repeat;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   min-width: 50px;
@@ -7,11 +9,15 @@
   max-width: 150px;
   margin: 0;
   padding: 0;
-  background: transparent;
+  background-color: transparent;
   border: 2px solid #fff;
   border-radius: 2px;
   flex-grow: 1;
   cursor: pointer;
+  width: 22px;
+  height: 22px;
+  background-image: url("../../../images/plus.svg");
+  background-position: center;
 }
 
 .profile__plus:hover {
@@ -24,5 +30,8 @@
   .profile__plus  {
     min-width: 282px;
     margin: 0 auto;
+    width: 16px;
+    height: 16px;
+    background-image: url("../../../images/plussm.svg");
   }
 }
