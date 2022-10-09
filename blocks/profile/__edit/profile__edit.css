@@ -1,7 +1,7 @@
 .profile__edit {
   display: flex;
   position: relative;
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0;
   border: 1px solid #fff;
   background: transparent;
