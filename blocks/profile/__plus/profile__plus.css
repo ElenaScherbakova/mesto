@@ -7,14 +7,13 @@
   min-height: 50px;
   min-width: 150px;
   margin-bottom: 9px;
-  margin-right: 8px;
   padding: 0;
   background-color: transparent;
   border: 2px solid #fff;
   border-radius: 2px;
   flex-grow: 1;
   cursor: pointer;
-  background-image: url("../../../images/plus.svg");
+/*  background-image: url("../../../images/plus.svg");*/
   background-position: center;
 
 }
@@ -31,7 +30,7 @@
     margin: 0 auto;
     width: 16px;
     height: 16px;
-    background-image: url("../../../images/plussm.svg");
+ /*   background-image: url("../../../images/plussm.svg");*/
     margin-top: -10px;
   }
 }
