@@ -52,9 +52,12 @@
       <section class="elements">
 
         <div class="elements__element">
-          <img alt="Камчатка"
-               class="elements__photo"
-               src="./images/Kamchatka.jpg">
+          <div class="elements__place">
+            <img alt="Камчатка"
+                 class="elements__photo"
+                 src="./images/Kamchatka.jpg">
+            <button type="button" class="elements__basket"></button>
+          </div>
           <div class="elements__title">
             <h2 class="elements__text">Камчатка</h2>
             <button type="button"
@@ -64,9 +67,12 @@
         </div>
 
         <div class="elements__element">
-          <img alt="Алтай"
-               class="elements__photo"
-               src="images/altay.jpg">
+          <div class="elements__place">
+            <img alt="Алтай"
+                 class="elements__photo"
+                 src="images/altay.jpg">
+            <button type="button" class="elements__basket"></button>
+          </div>
           <div class="elements__title">
             <h2 class="elements__text">Алтай</h2>
             <button type="button"
@@ -76,9 +82,12 @@
         </div>
 
         <div class="elements__element">
-          <img alt="Карелия"
-               class="elements__photo"
-               src="./images/Karelia.jpg">
+          <div class="elements__place">
+            <img alt="Карелия"
+                 class="elements__photo"
+                 src="./images/Karelia.jpg">
+            <button type="button" class="elements__basket"></button>
+          </div>
           <div class="elements__title">
             <h2 class="elements__text">Карелия</h2>
             <button type="button"
@@ -88,9 +97,12 @@
         </div>
 
         <div class="elements__element">
-          <img alt="Смоленск"
-               class="elements__photo"
-               src="./images/Smolensk.jpg">
+          <div class="elements__place">
+            <img alt="Смоленск"
+                 class="elements__photo"
+                 src="./images/Smolensk.jpg">
+            <button type="button" class="elements__basket"></button>
+          </div>
           <div class="elements__title">
             <h2 class="elements__text">Смоленск</h2>
             <button type="button"
@@ -100,9 +112,12 @@
         </div>
 
         <div class="elements__element">
-          <img alt="Дубровицы"
-               class="elements__photo"
-               src="./images/Dubrovitsy.jpg">
+          <div class="elements__place">
+            <img alt="Дубровицы"
+                 class="elements__photo"
+                 src="./images/Dubrovitsy.jpg">
+            <button type="button" class="elements__basket"></button>
+          </div>
           <div class="elements__title">
             <h2 class="elements__text">Дубровицы</h2>
             <button type="button"
@@ -112,9 +127,12 @@
         </div>
 
         <div class="elements__element">
-          <img alt="Тулиновка"
-               class="elements__photo"
-               src="./images/Tulinovka.jpg">
+          <div class="elements__place">
+            <img alt="Тулиновка"
+                 class="elements__photo"
+                 src="./images/Tulinovka.jpg">
+            <button type="button" class="elements__basket"></button>
+          </div>
           <div class="elements__title">
             <h2 class="elements__text">Тулиновка</h2>
             <button type="button"
@@ -142,7 +160,8 @@
       <button type="button"
               class="popup__close"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form id="submit-form" name="submit-shape"
+      <form id="submit-form"
+            name="submit-shape"
             class="popup__form">
         <input id="name"
                placeholder="Имя"
@@ -154,6 +173,31 @@
                class="popup__input">
         <button class="popup__button"
                 type="submit">Сохранить
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="popup">
+
+    <div class="popup__container">
+      <button type="button"
+              class="popup__close"></button>
+      <h3 class="popup__title">Новое место</h3>
+      <form id="place-form"
+            name="submit-shape"
+            class="popup__form">
+        <input id="title"
+               placeholder="Название"
+               name="name"
+               class="popup__input">
+        <input id="link"
+               placeholder="Ссылка на картинку"
+               name="about"
+               class="popup__input">
+        <button class="popup__button"
+                type="submit">Создать
         </button>
       </form>
     </div>
