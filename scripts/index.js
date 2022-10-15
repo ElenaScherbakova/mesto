@@ -11,6 +11,8 @@ const openPopupTitleBtn = document.querySelector(".profile__plus");
 const nameInputTitle = document.getElementById("title");
 const nameInputLink = document.getElementById("link");
 const formTwo  = document.getElementById("place-form");
+const listItemTemplate = document.querySelector('#place').content.querySelector('elements__place');
+
 
 const initialCards = [
   {
@@ -49,13 +51,13 @@ const formSubmitHandler = (formEvent) => {
   avocationSpan.innerText = avocation;
 };
 
-const formTwoSubmitHandler = (formEvent) => {
-  formEvent.preventDefault();
+const formTwoSubmitHandler = (formTwoEvent) => {
+  formTwoEvent.preventDefault();
   popup.classList.remove("popup_opened");
   const title = nameInputTitle.value;
   const link = nameInputLink.value;
-  titleSpan.innerText = title;
-  LinkSpan.innerText = link;
+/*  titleSpan.innerText = title;
+  LinkSpan.innerText = link;*/
 };
 
 
@@ -77,16 +79,30 @@ const markActive = (mouseEvent) => {
 
 const openPopupTwo = () => {
   popup.classList.add("popup_opened");
-  const title = titleSpan.innerText;
-  const link = linkSpan.innerText;
+/*  const title = titleSpan.innerText;
+  const link = linkSpan.innerText;*/
   nameInputTitle.value = title;
   nameInputLink.value = link;
 };
+
 
 openPopupTitleBtn.addEventListener('click', openPopupTwo);
 openPopupBtn.addEventListener("click", openPopup);
 popupCloseBtn.addEventListener("click", closePopup);
 form.addEventListener("submit", formSubmitHandler);
+formTwo.addEventListener("submit", formTwoSubmitHandler);
 likeBtnList.forEach( (likeBtn) => {
   likeBtn.addEventListener('click', markActive)
 });
+
+
+
+const createItem = (item) => {
+ const element = listItemTemplate.cloneNode(true);
+ const elementName = element.querySelector('.elements__text');
+ elementName.innerHTML = item.text;
+
+ list.intertAdjacentHTML('beforeend', element);
+};
+
+initialCards.forEach(createItem);
