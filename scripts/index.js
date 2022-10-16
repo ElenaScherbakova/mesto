@@ -16,8 +16,6 @@ const nameInputLink = document.getElementById("link");
 const formPlace  = document.getElementById("place-form");
 const listItemTemplate = document.querySelector('#place');
 const list = document.querySelector('.elements');
-const card = document.querySelector('.popup__card');
-
 
 const initialCards = [
   {
@@ -117,7 +115,7 @@ const renderCenterPane = () => {
 };
 
 const createItem = (item, appendToStart) => {
-  const element = listItemTemplate.content.cloneNode(true);
+  const element = listItemTemplate.content.cloneNode(true).firstElementChild;
   const elementName = element.querySelector('.elements__text');
   const elementImg = element.querySelector('.elements__photo');
   const elementLike = element.querySelector('.elements__like')
@@ -150,7 +148,7 @@ const handleFormSubmit = (event) => {
     link: nameInputLink.value
   }, true);
 }
- card.addEventListener('submit', handleFormSubmit);
+formPlace.addEventListener('submit', handleFormSubmit);
 
 
 
