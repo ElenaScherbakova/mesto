@@ -48,7 +48,6 @@ const initialCards = [
   }
 ];
 
-
 const formSubmitHandler = (formEvent) => {
   formEvent.preventDefault();
   popupEdit.classList.remove("popup_opened");
@@ -62,7 +61,6 @@ const formPlaceSubmitHandler = (formPlaceEvent) => {
   formPlaceEvent.preventDefault();
   popupPlus.classList.remove("popup_opened");
 };
-
 
 const openPopup = () => {
   popupEdit.classList.add("popup_opened");
@@ -100,7 +98,6 @@ const closeDialog = (dialog) => {
   dialog.classList.remove("popup_opened")
 }; // закртие общее
 
-
 popupPhotoClose.addEventListener('click', closePhoto);
 openPopupTitleBtn.addEventListener('click', openPopupPlace);
 openPopupBtn.addEventListener("click", openPopup);
@@ -110,7 +107,6 @@ popupPlusClose.addEventListener("click", closePlus);
 popupEditClose.addEventListener("click", closeEdit);
 form.addEventListener("submit", formSubmitHandler);
 formPlace.addEventListener("submit", formPlaceSubmitHandler);
-
 
 const renderCenterPane = () => {
   for (let i = 0; i < initialCards.length; i++) {
@@ -140,12 +136,12 @@ const createItem = (item, appendToStart) => {
     element.parentNode.removeChild(element)
   }
 
-    elementImg.addEventListener('click',  () => {
-      popupPhoto.setAttribute('alt', item.name)
-      popupPhoto.setAttribute('src', item.link);
-      popupFigcaption.textContent = item.name;
-      openPopupPhoto.classList.add("popup_opened");
-    }) // вызов модалки с фото
+  elementImg.addEventListener('click', () => {
+    popupPhoto.setAttribute('alt', item.name)
+    popupPhoto.setAttribute('src', item.link);
+    popupFigcaption.textContent = item.name;
+    openPopupPhoto.classList.add("popup_opened");
+  }) // вызов модалки с фото
 
   removeButton.addEventListener('click', removeCard);
 };
