@@ -1,21 +1,25 @@
 const openPopupBtn = document.querySelector(".profile__edit");
 const openPopupTitleBtn = document.querySelector(".profile__plus");
+const openPopupPhoto = document.querySelector(".popup__image");
 const popupEdit = document.querySelector(".popup__edit");
 const popupPlus = document.querySelector(".popup__plus");
-const popupEditSave  = popupEdit.querySelector(".popup__edit_save");
-const popupPlusSave  = popupPlus.querySelector(".popup__plus_save");
-const popupEditClose  = popupEdit.querySelector(".popup__edit_close");
-const popupPlusClose  = popupPlus.querySelector(".popup__plus_close");
+const popupEditSave = popupEdit.querySelector(".popup__edit_save");
+const popupPlusSave = popupPlus.querySelector(".popup__plus_save");
+const popupEditClose = popupEdit.querySelector(".popup__edit_close");
+const popupPlusClose = popupPlus.querySelector(".popup__plus_close");
 const nameInputName = document.getElementById("name");
 const nameInputAvocation = document.getElementById("avocation");
 const nameSpan = document.querySelector(".profile__title");
 const avocationSpan = document.querySelector(".profile__subtitle");
-const form  = document.getElementById("submit-form");
+const form = document.getElementById("submit-form");
 const nameInputTitle = document.getElementById("title");
 const nameInputLink = document.getElementById("link");
-const formPlace  = document.getElementById("place-form");
+const formPlace = document.getElementById("place-form");
 const listItemTemplate = document.querySelector('#place');
 const list = document.querySelector('.elements');
+const popupImage = document.querySelector('.popup__image');
+const popupPhoto = document.querySelector('.popup__photo');
+const popupFigcaption = document.querySelector(".popup__figcaption")
 
 const initialCards = [
   {
@@ -78,10 +82,6 @@ const closeEdit = () => {
 
 const openPopupPlace = () => {
   popupPlus.classList.add("popup_opened");
-/*  const title = null;
-  const link = null;
-  nameInputTitle.value = title;
-  nameInputLink.value = link;*/
 }; //  откртие второго попапа с фото и ссылкой
 
 const closePopupPlace = () => {
@@ -92,10 +92,13 @@ const closePlus = () => {
   closeDialog(popupPlus);
 }; // закрытие по крестику
 
+const openPopupImage = () => {
+  popupImage.classList.add('popup_opened');
+}
+
 const closeDialog = (dialog) => {
   dialog.classList.remove("popup_opened")
 }; // закртие общее
-
 
 
 openPopupTitleBtn.addEventListener('click', openPopupPlace);
@@ -109,7 +112,7 @@ formPlace.addEventListener("submit", formPlaceSubmitHandler);
 
 
 const renderCenterPane = () => {
-  for(let i = 0; i < initialCards.length; i++) {
+  for (let i = 0; i < initialCards.length; i++) {
     createItem(initialCards[i], false);
   }
 };
@@ -133,12 +136,19 @@ const createItem = (item, appendToStart) => {
   elementLike.addEventListener('click', likeButton)
 
   const removeCard = () => {
-   /* list.removeChild(element);*/
     element.parentNode.removeChild(element)
   }
 
- removeButton.addEventListener('click', removeCard);
+    elementImg.addEventListener('click',  () => {
+      popupPhoto.setAttribute('alt', item.name)
+      popupPhoto.setAttribute('src', item.link);
+      popupFigcaption.textContent = item.name;
+      openPopupPhoto.classList.add("popup_opened");
+    })
+
+  removeButton.addEventListener('click', removeCard);
 };
+
 
 
 const handleFormSubmit = (event) => {
@@ -149,7 +159,5 @@ const handleFormSubmit = (event) => {
   }, true);
 }
 formPlace.addEventListener('submit', handleFormSubmit);
-
-
 
 renderCenterPane()
