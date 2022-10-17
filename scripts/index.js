@@ -3,10 +3,12 @@ const openPopupTitleBtn = document.querySelector(".profile__plus");
 const openPopupPhoto = document.querySelector(".popup__image");
 const popupEdit = document.querySelector(".popup__edit");
 const popupPlus = document.querySelector(".popup__plus");
+const popupPhoto = document.querySelector('.popup__photo');
 const popupEditSave = popupEdit.querySelector(".popup__edit_save");
 const popupPlusSave = popupPlus.querySelector(".popup__plus_save");
 const popupEditClose = popupEdit.querySelector(".popup__edit_close");
 const popupPlusClose = popupPlus.querySelector(".popup__plus_close");
+const popupPhotoClose = document.querySelector('.popup__close_photo')
 const nameInputName = document.getElementById("name");
 const nameInputAvocation = document.getElementById("avocation");
 const nameSpan = document.querySelector(".profile__title");
@@ -17,8 +19,6 @@ const nameInputLink = document.getElementById("link");
 const formPlace = document.getElementById("place-form");
 const listItemTemplate = document.querySelector('#place');
 const list = document.querySelector('.elements');
-const popupImage = document.querySelector('.popup__image');
-const popupPhoto = document.querySelector('.popup__photo');
 const popupFigcaption = document.querySelector(".popup__figcaption")
 
 const initialCards = [
@@ -92,15 +92,16 @@ const closePlus = () => {
   closeDialog(popupPlus);
 }; // закрытие по крестику
 
-const openPopupImage = () => {
-  popupImage.classList.add('popup_opened');
-}
+const closePhoto = () => {
+  closeDialog(openPopupPhoto);
+};
 
 const closeDialog = (dialog) => {
   dialog.classList.remove("popup_opened")
 }; // закртие общее
 
 
+popupPhotoClose.addEventListener('click', closePhoto);
 openPopupTitleBtn.addEventListener('click', openPopupPlace);
 openPopupBtn.addEventListener("click", openPopup);
 popupPlusSave.addEventListener("click", closePopupPlace);
@@ -144,12 +145,10 @@ const createItem = (item, appendToStart) => {
       popupPhoto.setAttribute('src', item.link);
       popupFigcaption.textContent = item.name;
       openPopupPhoto.classList.add("popup_opened");
-    })
+    }) // вызов модалки с фото
 
   removeButton.addEventListener('click', removeCard);
 };
-
-
 
 const handleFormSubmit = (event) => {
   event.preventDefault(); // предотвращает перезагрузку страницы
