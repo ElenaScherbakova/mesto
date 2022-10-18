@@ -10,6 +10,7 @@
   border-radius: 2px;
   padding: 14px 0 18px 0;
   max-height: 50px;
+  border: 0;
 }
 
 .popup__button:hover {

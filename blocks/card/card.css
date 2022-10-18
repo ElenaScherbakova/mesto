@@ -1,7 +1,9 @@
-.elements__element {
+.card {
   display: flex;
   flex-direction: column;
   width: 100%;
   overflow: hidden; /* это необходимое свойство для border-radius */
   border-radius: 10px;
+  height: 361px;
+
 }

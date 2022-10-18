@@ -1,8 +1,9 @@
+
 const openPopupBtn = document.querySelector(".profile__edit");
 const openPopupTitleBtn = document.querySelector(".profile__plus");
-const openPopupPhoto = document.querySelector(".popup_image");
-const popupEdit = document.querySelector(".popup_edit");
-const popupPlus = document.querySelector(".popup_plus");
+const openPopupPhoto = document.querySelector(".popup_type_image");
+const popupEdit = document.querySelector(".popup_type_edit");
+const popupPlus = document.querySelector(".popup_type_plus");
 const popupPhoto = document.querySelector('.popup__photo');
 const popupEditSave = popupEdit.querySelector(".popup__button_edit");
 const popupPlusSave = popupPlus.querySelector(".popup__button_plus");
