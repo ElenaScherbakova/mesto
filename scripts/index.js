@@ -137,6 +137,4 @@ const createItem = (item) => {
   return element
 };
 
-
-
 renderCenterPane()
