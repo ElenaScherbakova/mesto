@@ -1,4 +1,3 @@
-
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenPhotoPopup = document.querySelector(".popup_type_image");
@@ -31,11 +30,6 @@ const handleSubmitProfileEditForm = (formEvent) => {
   const avocation = nameInputAvocation.value;
   nameSpan.innerText = name;
   avocationSpan.innerText = avocation;
-};
-
-const handleSubmitProfilePlaceForm = (formPlaceEvent) => {
-  formPlaceEvent.preventDefault();
-  popupPlus.classList.remove("popup_opened");
 };
 
 const openDialog = (dialog) => {
@@ -80,6 +74,15 @@ const closeDialog = (dialog) => {
   dialog.classList.add('popup_hidden')
 }; // закртие общее
 
+const handleSubmitProfilePlaceForm = (event) => {
+  event.preventDefault(); // предотвращает перезагрузку страницы
+  createItem({
+    name: nameInputTitle.value,
+    link: nameInputLink.value
+  }, true);
+  popupPlus.classList.remove("popup_opened");
+} // создание новой карточки и закрытие модалки
+
 popupPhotoClose.addEventListener('click', closePhoto);
 buttonOpenPlusPopup.addEventListener('click', openPopupPlace);
 buttonOpenEditPopup.addEventListener("click", openEditPopup);
@@ -91,49 +94,52 @@ form.addEventListener("submit", handleSubmitProfileEditForm);
 formPlace.addEventListener("submit", handleSubmitProfilePlaceForm);
 
 const renderCenterPane = () => {
-  for (let i = 0; i < initialCards.length; i++) {
+  initialCards.forEach(createItem)
+ /* for (let i = 0; i < initialCards.length; i++) {
     createItem(initialCards[i], false);
-  }
+  }*/
 };
+
+
+
+
 
 const createItem = (item, appendToStart) => {
   const element = listItemTemplate.content.cloneNode(true).firstElementChild;
   const elementName = element.querySelector('.elements__text');
   const elementImg = element.querySelector('.elements__photo');
-  const elementLike = element.querySelector('.elements__like')
   const removeButton = element.querySelector('.elements__basket');
   elementName.innerText = item.name; // меняет текст в заголовке
   elementImg.src = item.link; // меняет ссылку на картинку
   if (appendToStart) {
-    list.prepend(element)
-  } else {
     list.appendChild(element)
+  } else {
+    list.prepend(element)
   }
+
+  const elementLike = element.querySelector('.elements__like')
   const likeButton = () => {
     elementLike.classList.toggle('elements__like_active')
   }
-  elementLike.addEventListener('click', likeButton)
 
-  const removeCard = () => {
-    element.parentNode.removeChild(element)
-  }
 
-  elementImg.addEventListener('click', () => {
+  const popupOpenDialog = () => {
     popupPhoto.setAttribute('alt', item.name)
     popupPhoto.setAttribute('src', item.link);
     popupFigcaption.textContent = item.name;
     openDialog(buttonOpenPhotoPopup)
-  }) // вызов модалки с фото
-
-  removeButton.addEventListener('click', removeCard);
+  }
+  const removeItem = () => {
+    list.removeChild(element)
+    elementImg.removeEventListener('click', popupOpenDialog)
+    removeButton.removeEventListener('click', removeItem);
+    elementLike.removeEventListener('click', likeButton)
+  }
+  elementLike.addEventListener('click', likeButton)
+  elementImg.addEventListener('click', popupOpenDialog) // вызов модалки с фото
+  removeButton.addEventListener('click', removeItem);
 };
 
-const handleFormSubmit = (event) => {
-  event.preventDefault(); // предотвращает перезагрузку страницы
-  createItem({
-    name: nameInputTitle.value,
-    link: nameInputLink.value
-  }, true);
-}
+
 
 renderCenterPane()
