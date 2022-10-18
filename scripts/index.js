@@ -76,10 +76,10 @@ const closeDialog = (dialog) => {
 
 const handleSubmitProfilePlaceForm = (event) => {
   event.preventDefault(); // предотвращает перезагрузку страницы
-  createItem({
+  prependCard({
     name: nameInputTitle.value,
     link: nameInputLink.value
-  }, true);
+  });
   popupPlus.classList.remove("popup_opened");
 } // создание новой карточки и закрытие модалки
 
@@ -94,34 +94,30 @@ form.addEventListener("submit", handleSubmitProfileEditForm);
 formPlace.addEventListener("submit", handleSubmitProfilePlaceForm);
 
 const renderCenterPane = () => {
-  initialCards.forEach(createItem)
- /* for (let i = 0; i < initialCards.length; i++) {
-    createItem(initialCards[i], false);
-  }*/
+  initialCards.forEach(appendCard)
 };
 
+const appendCard = (item) => {
+  const element = createItem(item)
+  list.appendChild(element)
+}
+const prependCard = (item) => {
+  const element = createItem(item)
+  list.prepend(element)
+}
 
-
-
-
-const createItem = (item, appendToStart) => {
+const createItem = (item) => {
   const element = listItemTemplate.content.cloneNode(true).firstElementChild;
   const elementName = element.querySelector('.elements__text');
   const elementImg = element.querySelector('.elements__photo');
   const removeButton = element.querySelector('.elements__basket');
   elementName.innerText = item.name; // меняет текст в заголовке
   elementImg.src = item.link; // меняет ссылку на картинку
-  if (appendToStart) {
-    list.appendChild(element)
-  } else {
-    list.prepend(element)
-  }
 
   const elementLike = element.querySelector('.elements__like')
   const likeButton = () => {
     elementLike.classList.toggle('elements__like_active')
   }
-
 
   const popupOpenDialog = () => {
     popupPhoto.setAttribute('alt', item.name)
@@ -138,6 +134,7 @@ const createItem = (item, appendToStart) => {
   elementLike.addEventListener('click', likeButton)
   elementImg.addEventListener('click', popupOpenDialog) // вызов модалки с фото
   removeButton.addEventListener('click', removeItem);
+  return element
 };
 
 
