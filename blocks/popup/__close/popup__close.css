@@ -8,6 +8,7 @@
   top: -40px;
   cursor: pointer;
   background-size: cover;
+  z-index: 4;
 }
 
 

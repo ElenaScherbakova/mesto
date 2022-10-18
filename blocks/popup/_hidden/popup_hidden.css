@@ -1,5 +1,7 @@
-/*
 .popup_hidden {
-  display: none;
+  animation-name: fadeout;
+  animation-duration: 1s;
+  opacity: 0;
+  visibility: hidden;
+  animation-delay: 0.2s;
 }
-*/
