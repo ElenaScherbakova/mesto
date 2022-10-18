@@ -21,8 +21,6 @@ const listItemTemplate = document.querySelector('#place');
 const list = document.querySelector('.elements');
 const popupFigcaption = document.querySelector(".popup__figcaption")
 
-
-
 const handleSubmitProfileEditForm = (formEvent) => {
   formEvent.preventDefault();
   popupEdit.classList.remove("popup_opened");
@@ -113,7 +111,6 @@ const createItem = (item) => {
   const removeButton = element.querySelector('.elements__basket');
   elementName.innerText = item.name; // меняет текст в заголовке
   elementImg.src = item.link; // меняет ссылку на картинку
-
   const elementLike = element.querySelector('.elements__like')
   const likeButton = () => {
     elementLike.classList.toggle('elements__like_active')
