@@ -1,4 +1,4 @@
-.elements__basket {
+.card__basket {
   background-image: url("../../../images/basket.svg");
   z-index: 2;
   min-width: 18px;
@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-.elements__basket:hover {
+.card__basket:hover {
   opacity: 0.6;
   transition: opacity ease-in 0.5s;
 }

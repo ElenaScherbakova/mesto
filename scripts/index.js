@@ -23,7 +23,7 @@ const popupFigcaption = document.querySelector(".popup__figcaption")
 
 const handleSubmitProfileEditForm = (formEvent) => {
   formEvent.preventDefault();
-  popupEdit.classList.remove("popup_opened");
+  closeDialog( popupEdit);
   const name = nameInputName.value;
   const avocation = nameInputAvocation.value;
   nameSpan.innerText = name;
@@ -31,7 +31,7 @@ const handleSubmitProfileEditForm = (formEvent) => {
 };
 
 const openDialog = (dialog) => {
-  dialog.classList.remove('popup_hidden')
+  dialog.classList.remove('popup_hidden') // класс hidden нужен для анимации и плавного открытия модалок
   dialog.classList.add("popup_opened")
 };
 
@@ -78,7 +78,7 @@ const handleSubmitProfilePlaceForm = (event) => {
     name: nameInputTitle.value,
     link: nameInputLink.value
   });
-  popupPlus.classList.remove("popup_opened");
+  closeDialog(popupPlus);
 } // создание новой карточки и закрытие модалки
 
 popupPhotoClose.addEventListener('click', closePhoto);
@@ -106,14 +106,15 @@ const prependCard = (item) => {
 
 const createItem = (item) => {
   const element = listItemTemplate.content.cloneNode(true).firstElementChild;
-  const elementName = element.querySelector('.elements__text');
-  const elementImg = element.querySelector('.elements__photo');
-  const removeButton = element.querySelector('.elements__basket');
+  const elementName = element.querySelector('.card__text');
+  const elementImg = element.querySelector('.card__photo');
+  const removeButton = element.querySelector('.card__basket');
   elementName.innerText = item.name; // меняет текст в заголовке
   elementImg.src = item.link; // меняет ссылку на картинку
-  const elementLike = element.querySelector('.elements__like')
+  elementImg.alt = item.name;
+  const elementLike = element.querySelector('.card__like')
   const likeButton = () => {
-    elementLike.classList.toggle('elements__like_active')
+    elementLike.classList.toggle('card__like_active')
   }
 
   const popupOpenDialog = () => {
