@@ -1,7 +1,22 @@
 .popup_hidden {
   animation-name: fadeout;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   opacity: 0;
   visibility: hidden;
-  animation-delay: 0.2s;
 }
+
+
+
+@keyframes fadeout {
+
+  100% {
+    opacity: 0;
+    visibility: visible;
+  }
+
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
