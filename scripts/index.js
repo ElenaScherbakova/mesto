@@ -2,6 +2,7 @@ const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenPhotoPopup = document.querySelector(".popup_type_image");
 const popupEdit = document.querySelector(".popup_type_edit");
+const popupModalFon = document.querySelectorAll(".popup__container");
 const popupPlus = document.querySelector(".popup_type_plus");
 const popupPhoto = document.querySelector('.popup__photo');
 const popupEditSave = popupEdit.querySelector(".popup__button_edit");
@@ -50,6 +51,10 @@ const closePopupEdit = () => {
 const closeEdit = () => {
   closeDialog(popupEdit);
 }; // закрытие по крестику
+
+const closeModal = () => {
+  closeDialog(popupModalFon);
+};
 
 const openPopupPlace = () => {
   openDialog(popupPlus)
@@ -114,7 +119,7 @@ const createItem = (item) => {
   elementImg.alt = item.name;
   const elementLike = element.querySelector('.card__like')
   const likeButton = () => {
-    elementLike.classList.toggle('card__like_active')
+    elementLike.classList.toggle('card__like_active') // ставит и убирает лайк
   }
 
   const popupOpenDialog = () => {
@@ -135,4 +140,7 @@ const createItem = (item) => {
   return element
 };
 
+
 renderCenterPane()
+
+
