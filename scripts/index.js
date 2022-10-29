@@ -42,6 +42,7 @@ const openEditPopup = () => {
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
   nameInputAvocation.value = avocation;
+  validateForm(form)
 }; //  откртие первого попапа с именем и профессией
 
 const closePopupEdit = () => {
