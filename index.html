@@ -72,17 +72,17 @@
       <h3 class="popup__title">Редактировать профиль</h3>
       <form id="submit-form"
             name="submit-shape"
-            class="popup__form">
+            class="popup__form" novalidate>
         <input id="name"
                placeholder="Имя"
                name="name"
-               class="popup__input popup__input_type_error">
-        <span class="input-error-name"></span>
+               class="popup__input popup__input_type_error" minlength="2" maxlength="40" required>
+        <label for="name" class="popup__error input-error-name"></label>
         <input id="avocation"
                placeholder="О себе"
                name="about"
-               class="popup__input popup__input_type_error">
-        <span class="input-error-about"></span>
+               class="popup__input popup__input_type_error" minlength="2" maxlength="200"required>
+        <label for="avocation" class="popup__error input-error-about"></label>
         <button disabled class="popup__button popup__button_edit"
                 type="submit" >Сохранить
         </button>
@@ -104,13 +104,13 @@
                placeholder="Название"
                name="title"
                class="popup__input popup__name popup__input_type_error" required minlength="2" maxlength="30">
-        <span class="input-error-title"></span>
+        <span class="popup__error input-error-title"></span>
         <input id="link"
                placeholder="Ссылка на картинку"
                name="link"
                type="url"
                class="popup__input popup__link popup__input_type_error" required>
-        <span class="input-error-link"></span>
+        <span class="popup__error input-error-link"></span>
         <button disabled class="popup__button popup__button_plus"
                 type="submit">Создать
         </button>
@@ -159,6 +159,7 @@
   </template>
 
   <script src="./scripts/cards.js"></script>
+  <script src="./scripts/valid.js"></script>
   <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
