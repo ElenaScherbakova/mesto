@@ -42,7 +42,6 @@ const openEditPopup = () => {
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
   nameInputAvocation.value = avocation;
-/*  validateForm(form)*/
 }; //  откртие первого попапа с именем и профессией
 
 const closePopupEdit = () => {
@@ -73,10 +72,38 @@ const closePhoto = () => {
   closeDialog(buttonOpenPhotoPopup);
 };
 
+/**
+ закрытие по Esc
+ */
+
+
+const closeAllDialog =() => {
+  document.querySelectorAll(".popup_opened").forEach((dialog) => {
+    closeDialog(dialog)
+  })
+}
+
+
+const closeEsc = (event)  =>  {
+    if (event.key === 'Escape') {
+      closeAllDialog()
+    }
+  }
+
+
+document.addEventListener('keydown', closeEsc)
+/*document.addEventListener('click', closeAllDialog)*/
+
+/**
+  общее закрытие
+ */
+
 const closeDialog = (dialog) => {
   dialog.classList.remove("popup_opened")
   dialog.classList.add('popup_hidden')
-}; // закртие общее
+};
+
+
 
 const handleSubmitProfilePlaceForm = (event) => {
   event.preventDefault(); // предотвращает перезагрузку страницы
@@ -140,7 +167,6 @@ const createItem = (item) => {
   removeButton.addEventListener('click', removeItem);
   return element
 };
-
 
 renderCenterPane()
 

@@ -16,6 +16,7 @@
 .popup__button:hover {
   background-color: rgba(0,0,0,0.8);
   transition: opacity ease-in 0.5s;
+  cursor: pointer;
 }
 
 .popup__button:disabled {
