@@ -124,7 +124,7 @@ popupPlusClose.addEventListener("click", closePlus);
 popupEditClose.addEventListener("click", closeEdit);
 form.addEventListener("submit", handleSubmitProfileEditForm);
 formPlace.addEventListener("submit", handleSubmitProfilePlaceForm);
-document.addEventListener('mousedown', overlay);
+document.addEventListener('click', overlay);
 document.addEventListener('keydown', closeEsc);
 
 const renderCenterPane = () => {
