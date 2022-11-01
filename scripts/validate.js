@@ -66,9 +66,7 @@ const handleFormInput = (evt, form, inputErrorClass, formSubmitButtonElement, in
 
 const handleFormSubmit = (evt) => {
   evt.preventDefault()
-  //сюда нужно засунуть showInputError hideInputError disableButton чтоб при повторном открытии форм не было ошибок
 }
-
 
 const enableValidation = (config) => {
   const formElements = Array.from(document.querySelectorAll(config.formSelector));
@@ -82,8 +80,8 @@ const enableValidation = (config) => {
                       formSubmitButtonElement, config.inactiveButtonClass, inputs))
     })
   })
-
 }
+
 enableValidation({
   formSelector: '.popup__form',
   inputSelector: '.popup__input',

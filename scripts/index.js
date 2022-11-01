@@ -2,7 +2,6 @@ const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenPhotoPopup = document.querySelector(".popup_type_image");
 const popupEdit = document.querySelector(".popup_type_edit");
-const popupModalFon = document.querySelectorAll(".popup__container");
 const popupPlus = document.querySelector(".popup_type_plus");
 const popupPhoto = document.querySelector('.popup__photo');
 const popupEditSave = popupEdit.querySelector(".popup__button_edit");
@@ -52,10 +51,6 @@ const closeEdit = () => {
   closeDialog(popupEdit);
 }; // закрытие по крестику
 
-const closeModal = () => {
-  closeDialog(popupModalFon);
-};
-
 const openPopupPlace = () => {
   openDialog(popupPlus)
 }; //  откртие второго попапа с фото и ссылкой
@@ -73,9 +68,8 @@ const closePhoto = () => {
 };
 
 /**
- закрытие по Esc
+ закрытие всех диалогов
  */
-
 
 const closeAllDialog =() => {
   document.querySelectorAll(".popup_opened").forEach((dialog) => {
@@ -83,6 +77,9 @@ const closeAllDialog =() => {
   })
 }
 
+/**
+Закрытие по кнопке Esc
+ */
 
 const closeEsc = (event)  =>  {
     if (event.key === 'Escape') {
@@ -90,9 +87,15 @@ const closeEsc = (event)  =>  {
     }
   }
 
+/**
+ Закрытие по overlay
+ */
 
-document.addEventListener('keydown', closeEsc)
-/*document.addEventListener('click', closeAllDialog)*/
+const overlay = (event) => {
+  if (event.target.classList.contains('popup')) {
+    closeAllDialog(event)
+  }
+}
 
 /**
   общее закрытие
@@ -102,8 +105,6 @@ const closeDialog = (dialog) => {
   dialog.classList.remove("popup_opened")
   dialog.classList.add('popup_hidden')
 };
-
-
 
 const handleSubmitProfilePlaceForm = (event) => {
   event.preventDefault(); // предотвращает перезагрузку страницы
@@ -123,6 +124,8 @@ popupPlusClose.addEventListener("click", closePlus);
 popupEditClose.addEventListener("click", closeEdit);
 form.addEventListener("submit", handleSubmitProfileEditForm);
 formPlace.addEventListener("submit", handleSubmitProfilePlaceForm);
+document.addEventListener('mousedown', overlay);
+document.addEventListener('keydown', closeEsc);
 
 const renderCenterPane = () => {
   initialCards.forEach(appendCard)
