@@ -40,7 +40,7 @@ const openEditPopup = () => {
   const name = nameSpan.innerText;
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
-  nameInputAvocation.value = avocation;
+  nameInputLink.value = avocation;
 }; //  открытие первого попапа с именем и профессией
 
 const closePopupEdit = () => {
@@ -48,6 +48,8 @@ const closePopupEdit = () => {
 }; // закртыие по кнопке создать
 
 const openPopupPlace = () => {
+  nameInputTitle.value = "";
+  nameInputLink.value = "";
   openDialog(popupAddCard)
 }; //  откртие второго попапа с фото и ссылкой
 
@@ -88,7 +90,7 @@ const closeEsc = (event)  => {
  */
 
 const closePopupByOverlay = (event) => {
-  if (event.target.classList.contains('popup')) {
+  if (event.target.classList.contains('popup') || event.target.classList.contains('popup__block')) {
     closeOpenDialog(event)
   }
 }
