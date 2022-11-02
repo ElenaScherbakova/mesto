@@ -1,29 +1,27 @@
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenPhotoPopup = document.querySelector(".popup_type_image");
-const popupEdit = document.querySelector(".popup_type_edit");
-const popupPlus = document.querySelector(".popup_type_plus");
+const popupEditProfile = document.querySelector(".popup_type_edit");
+const popupAddCard = document.querySelector(".popup_type_plus");
 const popupPhoto = document.querySelector('.popup__photo');
-const popupEditSave = popupEdit.querySelector(".popup__button_edit");
-const popupPlusSave = popupPlus.querySelector(".popup__button_plus");
-const popupEditClose = popupEdit.querySelector(".popup__close_edit");
-const popupPlusClose = popupPlus.querySelector(".popup__close_plus");
+const popupEditClose = popupEditProfile.querySelector(".popup__close_edit");
+const popupPlusClose = popupAddCard.querySelector(".popup__close_plus");
 const popupPhotoClose = document.querySelector('.popup__close_photo')
 const nameInputName = document.getElementById("name");
 const nameInputAvocation = document.getElementById("avocation");
 const nameSpan = document.querySelector(".profile__title");
 const avocationSpan = document.querySelector(".profile__subtitle");
-const form = document.getElementById("submit-form");
+const formEditProfile = document.getElementById("submit-form");
 const nameInputTitle = document.getElementById("title");
 const nameInputLink = document.getElementById("link");
-const formPlace = document.getElementById("place-form");
+const formAddPlace = document.getElementById("place-form");
 const listItemTemplate = document.querySelector('#place');
 const list = document.querySelector('.elements');
 const popupFigcaption = document.querySelector(".popup__figcaption")
 
 const handleSubmitProfileEditForm = (formEvent) => {
   formEvent.preventDefault();
-  closeDialog( popupEdit);
+  closeDialog(popupEditProfile);
   const name = nameInputName.value;
   const avocation = nameInputAvocation.value;
   nameSpan.innerText = name;
@@ -33,67 +31,65 @@ const handleSubmitProfileEditForm = (formEvent) => {
 const openDialog = (dialog) => {
   dialog.classList.remove('popup_hidden') // класс hidden нужен для анимации и плавного открытия модалок
   dialog.classList.add("popup_opened")
+  document.addEventListener('keydown', closeEsc);
+  document.addEventListener('click', closePopupByOverlay);
 };
 
 const openEditPopup = () => {
-  openDialog(popupEdit);
+  openDialog(popupEditProfile);
   const name = nameSpan.innerText;
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
   nameInputAvocation.value = avocation;
-}; //  откртие первого попапа с именем и профессией
+}; //  открытие первого попапа с именем и профессией
 
 const closePopupEdit = () => {
-  closeDialog(popupEdit);
+  closeDialog(popupEditProfile);
 }; // закртыие по кнопке создать
 
-const closeEdit = () => {
-  closeDialog(popupEdit);
-}; // закрытие по крестику
-
 const openPopupPlace = () => {
-  openDialog(popupPlus)
+  openDialog(popupAddCard)
 }; //  откртие второго попапа с фото и ссылкой
 
 const closePopupPlace = () => {
-  closeDialog(popupPlus);
+  closeDialog(popupAddCard);
 }; // закрытие по кнопке сохранить
-
-const closePlus = () => {
-  closeDialog(popupPlus);
-}; // закрытие по крестику
 
 const closePhoto = () => {
   closeDialog(buttonOpenPhotoPopup);
 };
 
 /**
- закрытие всех диалогов
+ закрытие диалогов
  */
 
-const closeAllDialog =() => {
-  document.querySelectorAll(".popup_opened").forEach((dialog) => {
-    closeDialog(dialog)
-  })
+function closeOpenDialog  () {
+  const keepDialog = document.querySelector('.popup_opened')
+  if (keepDialog) {
+    closeDialog(keepDialog)
+  }
+  document.removeEventListener('keydown', closeEsc);
+  document.removeEventListener('click', closePopupByOverlay);
 }
 
 /**
 Закрытие по кнопке Esc
  */
 
-const closeEsc = (event)  =>  {
-    if (event.key === 'Escape') {
-      closeAllDialog()
-    }
+const closeEsc = (event)  => {
+   if (event.key === 'Escape') {
+    closeOpenDialog()
   }
+}
+
 
 /**
  Закрытие по overlay
  */
 
-const overlay = (event) => {
+const closePopupByOverlay = (event) => {
   if (event.target.classList.contains('popup')) {
-    closeAllDialog(event)
+    closeOpenDialog(event)
   }
 }
 
@@ -112,20 +108,17 @@ const handleSubmitProfilePlaceForm = (event) => {
     name: nameInputTitle.value,
     link: nameInputLink.value
   });
-  closeDialog(popupPlus);
+  closeDialog(popupAddCard);
 } // создание новой карточки и закрытие модалки
 
 popupPhotoClose.addEventListener('click', closePhoto);
 buttonOpenPlusPopup.addEventListener('click', openPopupPlace);
 buttonOpenEditPopup.addEventListener("click", openEditPopup);
-popupPlusSave.addEventListener("click", closePopupPlace);
-popupEditSave.addEventListener("click", closePopupEdit);
-popupPlusClose.addEventListener("click", closePlus);
-popupEditClose.addEventListener("click", closeEdit);
-form.addEventListener("submit", handleSubmitProfileEditForm);
-formPlace.addEventListener("submit", handleSubmitProfilePlaceForm);
-document.addEventListener('click', overlay);
-document.addEventListener('keydown', closeEsc);
+popupPlusClose.addEventListener("click", closePopupPlace);
+popupEditClose.addEventListener("click", closePopupEdit);
+formEditProfile.addEventListener("submit", handleSubmitProfileEditForm);
+formAddPlace.addEventListener("submit", handleSubmitProfilePlaceForm);
+
 
 const renderCenterPane = () => {
   initialCards.forEach(appendCard)
@@ -151,7 +144,8 @@ const createItem = (item) => {
   const elementLike = element.querySelector('.card__like')
   const likeButton = () => {
     elementLike.classList.toggle('card__like_active') // ставит и убирает лайк
-  }
+  } // В пределах одной функции код более транспортабелен, тем самым легче перенести в отдельный модуль и использовать потом.
+  // Функции объявленные внутри этой функции не используются нигде кроме как в самой функции. Код т.о. инкапсулирован.
 
   const popupOpenDialog = () => {
     popupPhoto.setAttribute('alt', item.name)
@@ -170,6 +164,7 @@ const createItem = (item) => {
   removeButton.addEventListener('click', removeItem);
   return element
 };
+
 
 renderCenterPane()
 

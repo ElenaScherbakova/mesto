@@ -24,6 +24,9 @@ const enableButton = (buttonElement, disabledButtonClass) => {
   buttonElement.disabled = false;
 };
 
+
+
+
 /**
  делает кнопку не/активной
  */
