@@ -45,8 +45,7 @@ const openEditPopup = () => {
   const name = nameSpan.innerText;
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
-  nameInputLink.value = avocation;
-  
+  nameInputAvocation.value = avocation;
 };
 
 /**
