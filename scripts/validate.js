@@ -14,6 +14,7 @@ const hideInputError = (inputElement, errorElement, inputErrorClass) => {
   errorElement.textContent = '';
 };
 
+
 const disableButton = (buttonElement, disabledButtonClass) => {
   buttonElement.classList.add(disabledButtonClass);
   buttonElement.disabled = true;
@@ -23,9 +24,6 @@ const enableButton = (buttonElement, disabledButtonClass) => {
   buttonElement.classList.remove(disabledButtonClass);
   buttonElement.disabled = false;
 };
-
-
-
 
 /**
  делает кнопку не/активной
@@ -40,7 +38,7 @@ const toggleButtonState = (formSubmitButtonElement, inactiveButtonClass, buttonS
 }
 
 /**
- проверяет валидность поля
+ проверяет валидность поля, показывает/ скрывает ошибки
  */
 
 const checkInputValidity = (inputElement, errorElement, inputErrorClass) => {
@@ -69,6 +67,7 @@ const handleFormInput = (evt, form, inputErrorClass, formSubmitButtonElement, in
 
 const handleFormSubmit = (evt) => {
   evt.preventDefault()
+
 }
 
 const enableValidation = (config) => {

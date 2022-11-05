@@ -32,8 +32,13 @@ const openDialog = (dialog) => {
   dialog.classList.remove('popup_hidden') // класс hidden нужен для анимации и плавного открытия модалок
   dialog.classList.add("popup_opened")
   document.addEventListener('keydown', closeEsc);
-  document.addEventListener('click', closePopupByOverlay);
+  document.addEventListener('mousedown', closePopupByOverlay);
+
 };
+
+/**
+ * открытие первого попапа с именем и профессией
+ */
 
 const openEditPopup = () => {
   openDialog(popupEditProfile);
@@ -41,21 +46,32 @@ const openEditPopup = () => {
   const avocation = avocationSpan.innerText;
   nameInputName.value = name;
   nameInputLink.value = avocation;
-}; //  открытие первого попапа с именем и профессией
+};
+
+/**
+ * закртыие по кнопке создать
+ */
 
 const closePopupEdit = () => {
   closeDialog(popupEditProfile);
-}; // закртыие по кнопке создать
+};
+
+/**
+ * откртие второго попапа с фото и ссылкой
+ */
 
 const openPopupPlace = () => {
   nameInputTitle.value = "";
   nameInputLink.value = "";
   openDialog(popupAddCard)
-}; //  откртие второго попапа с фото и ссылкой
+};
 
+/**
+ * закрытие по кнопке сохранить
+ */
 const closePopupPlace = () => {
   closeDialog(popupAddCard);
-}; // закрытие по кнопке сохранить
+};
 
 const closePhoto = () => {
   closeDialog(buttonOpenPhotoPopup);
@@ -71,8 +87,10 @@ function closeOpenDialog  () {
     closeDialog(keepDialog)
   }
   document.removeEventListener('keydown', closeEsc);
-  document.removeEventListener('click', closePopupByOverlay);
+  document.removeEventListener('mousedown', closePopupByOverlay);
 }
+
+
 
 /**
 Закрытие по кнопке Esc
@@ -83,7 +101,6 @@ const closeEsc = (event)  => {
     closeOpenDialog()
   }
 }
-
 
 /**
  Закрытие по overlay
@@ -104,6 +121,7 @@ const closeDialog = (dialog) => {
   dialog.classList.add('popup_hidden')
 };
 
+
 const handleSubmitProfilePlaceForm = (event) => {
   event.preventDefault(); // предотвращает перезагрузку страницы
   prependCard({
@@ -112,6 +130,7 @@ const handleSubmitProfilePlaceForm = (event) => {
   });
   closeDialog(popupAddCard);
 } // создание новой карточки и закрытие модалки
+
 
 popupPhotoClose.addEventListener('click', closePhoto);
 buttonOpenPlusPopup.addEventListener('click', openPopupPlace);
