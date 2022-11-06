@@ -14,7 +14,6 @@ const hideInputError = (inputElement, errorElement, inputErrorClass) => {
   errorElement.textContent = '';
 };
 
-
 const disableButton = (buttonElement, disabledButtonClass) => {
   buttonElement.classList.add(disabledButtonClass);
   buttonElement.disabled = true;
@@ -92,4 +91,3 @@ enableValidation({
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
 });
-
