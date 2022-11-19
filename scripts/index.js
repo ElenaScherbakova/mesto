@@ -1,3 +1,5 @@
+import {Card} from './Card.js'
+
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenPhotoPopup = document.querySelector(".popup_type_image");
@@ -19,6 +21,7 @@ const listItemTemplate = document.querySelector('#place');
 const list = document.querySelector('.elements');
 const popupFigcaption = document.querySelector(".popup__figcaption")
 const popupSubmitPlace = document.querySelector(".popup__button_plus")
+
 
 const handleSubmitProfileEditForm = (formEvent) => {
   formEvent.preventDefault();
@@ -90,12 +93,12 @@ function closeOpenedDialog() {
 }
 
 /**
-Закрытие по кнопке Esc
+ Закрытие по кнопке Esc
  */
 
-const closeEsc = (event)  => {
-   if (event.key === 'Escape') {
-     closeOpenedDialog()
+const closeEsc = (event) => {
+  if (event.key === 'Escape') {
+    closeOpenedDialog()
   }
 }
 
@@ -110,7 +113,7 @@ const closePopupByOverlay = (event) => {
 }
 
 /**
-  общее закрытие
+ общее закрытие
  */
 
 const closeDialog = (dialog) => {
@@ -150,36 +153,21 @@ const prependCard = (item) => {
   list.prepend(element)
 }
 
-const createItem = (item) => {
-  const element = listItemTemplate.content.cloneNode(true).firstElementChild;
-  const elementName = element.querySelector('.card__text');
-  const elementImg = element.querySelector('.card__photo');
-  const removeButton = element.querySelector('.card__basket');
-  elementName.innerText = item.name; // меняет текст в заголовке
-  elementImg.src = item.link; // меняет ссылку на картинку
-  elementImg.alt = item.name;
-  const elementLike = element.querySelector('.card__like')
-  const likeButton = () => {
-    elementLike.classList.toggle('card__like_active') // ставит и убирает лайк
-  } // В пределах одной функции код более транспортабелен, тем самым легче перенести в отдельный модуль и использовать потом.
-  // Функции объявленные внутри этой функции не используются нигде кроме как в самой функции. Код т.о. инкапсулирован.
+const removeItem = (element) => {
+  list.removeChild(element)
+}
 
-  const popupOpenDialog = () => {
-    popupPhoto.setAttribute('alt', item.name)
-    popupPhoto.setAttribute('src', item.link);
-    popupFigcaption.textContent = item.name;
-    openDialog(buttonOpenPhotoPopup)
-  }
-  const removeItem = () => {
-    list.removeChild(element)
-    elementImg.removeEventListener('click', popupOpenDialog)
-    removeButton.removeEventListener('click', removeItem);
-    elementLike.removeEventListener('click', likeButton)
-  }
-  elementLike.addEventListener('click', likeButton)
-  elementImg.addEventListener('click', popupOpenDialog) // вызов модалки с фото
-  removeButton.addEventListener('click', removeItem);
-  return element
+const popupOpenDialog = (item) => {
+  popupPhoto.setAttribute('alt', item.name)
+  popupPhoto.setAttribute('src', item.link);
+  popupFigcaption.textContent = item.name;
+  openDialog(buttonOpenPhotoPopup)
+}
+
+const createItem = (item) => {
+  const card = new Card("#place", item, popupOpenDialog, removeItem)
+
+  return card.createItem()
 };
 
 renderCenterPane()
