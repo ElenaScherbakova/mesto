@@ -178,7 +178,6 @@ const popupOpenDialog = (item) => {
 
 const createItem = (item) => {
   const card = new Card("#place", item, popupOpenDialog, removeItem)
-
   return card.createItem()
 };
 
