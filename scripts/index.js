@@ -1,4 +1,5 @@
 import {Card} from './Card.js'
+import {FormValidator} from './FormValidator.js'
 
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
@@ -21,7 +22,18 @@ const listItemTemplate = document.querySelector('#place');
 const list = document.querySelector('.elements');
 const popupFigcaption = document.querySelector(".popup__figcaption")
 const popupSubmitPlace = document.querySelector(".popup__button_plus")
+const formElements = Array.from(document.querySelectorAll('.popup__form'));
 
+formElements.forEach(function (form) {
+  const formValidator = new FormValidator({
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+  }, form)
+  formValidator.enableValidation()
+})
 
 const handleSubmitProfileEditForm = (formEvent) => {
   formEvent.preventDefault();
