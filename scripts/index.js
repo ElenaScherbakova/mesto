@@ -24,7 +24,8 @@ const popupFigcaption = document.querySelector(".popup__figcaption")
 const popupSubmitPlace = document.querySelector(".popup__button_plus")
 const formElements = Array.from(document.querySelectorAll('.popup__form'));
 
-formElements.forEach(function (form) {
+
+const callForm = (form) => {
   const formValidator = new FormValidator({
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
@@ -33,7 +34,11 @@ formElements.forEach(function (form) {
     errorClass: 'popup__error_visible'
   }, form)
   formValidator.enableValidation()
-})
+  return formValidator
+}
+
+const formEditValidator = callForm(formEditProfile)
+const formPlaceValidator = callForm(formAddPlace)
 
 const handleSubmitProfileEditForm = (formEvent) => {
   formEvent.preventDefault();
@@ -76,9 +81,7 @@ const closePopupEdit = () => {
  */
 
 const openPopupPlace = () => {
-  nameInputTitle.value = "";
-  nameInputLink.value = "";
-  popupSubmitPlace.disabled = 'true';
+  formPlaceValidator.disableButton();
   openDialog(popupAddCard)
 };
 
@@ -141,6 +144,8 @@ const handleSubmitProfilePlaceForm = (event) => {
     name: nameInputTitle.value,
     link: nameInputLink.value
   });
+  nameInputTitle.value = ''
+  nameInputLink.value = ''
   closeDialog(popupAddCard);
 } // создание новой карточки и закрытие модалки
 
@@ -169,7 +174,7 @@ const removeItem = (element) => {
   list.removeChild(element)
 }
 
-const popupOpenDialog = (item) => {
+const openPopupDialog = (item) => {
   popupPhoto.setAttribute('alt', item.name)
   popupPhoto.setAttribute('src', item.link);
   popupFigcaption.textContent = item.name;
@@ -177,7 +182,7 @@ const popupOpenDialog = (item) => {
 }
 
 const createItem = (item) => {
-  const card = new Card("#place", item, popupOpenDialog, removeItem)
+  const card = new Card("#place", item, openPopupDialog, removeItem)
   return card.createItem()
 };
 

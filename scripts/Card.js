@@ -10,7 +10,7 @@ export class Card {
     this._likeButton = () => {
       this.elementLike.classList.toggle('card__like_active') // ставит и убирает лайк
     }
-    this._popupOpenDialog = () => {
+    this._handleImageClick = () => {
       this._onImgClick(this.data)
     }
     this._removeItem = () => {
@@ -23,21 +23,26 @@ export class Card {
             .content.querySelector('.card')
   }
 
+  _setEventListeners() {
+    this.elementLike.addEventListener('click', this._likeButton)
+    this.elementImg.addEventListener('click', this._handleImageClick) // вызов модалки с фото
+    this.removeButton.addEventListener('click', this._removeItem);
+  }
+
   createItem() {
     const element = this.getTemplate().cloneNode(true);
     this._element = element
     const elementName = element.querySelector('.card__text');
-    const elementImg = element.querySelector('.card__photo');
-    const removeButton = element.querySelector('.card__basket');
+    this.elementImg = element.querySelector('.card__photo');
+    this.removeButton = element.querySelector('.card__basket');
     elementName.innerText = this.data.name; // меняет текст в заголовке
-    elementImg.src = this.data.link; // меняет ссылку на картинку
-    elementImg.alt = this.data.name;
+    this.elementImg.src = this.data.link; // меняет ссылку на картинку
+    this.elementImg.alt = this.data.name;
     this.elementLike = element.querySelector('.card__like')
-    this.elementLike.addEventListener('click', this._likeButton)
-    elementImg.addEventListener('click', this._popupOpenDialog) // вызов модалки с фото
-    removeButton.addEventListener('click', this._removeItem);
+    this._setEventListeners()
     return element
   };
+
 
 }
 

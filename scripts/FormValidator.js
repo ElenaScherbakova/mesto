@@ -2,6 +2,14 @@ export class FormValidator {
   constructor(config, form) {
     this._config = config
     this._form = form
+
+    this.disableButton = () => {
+      this._formSubmitButtonElement.disabled = true;
+    }
+
+    this.enableButton = () => {
+      this._formSubmitButtonElement.disabled = false;
+    }
   }
 
   /**
@@ -77,13 +85,13 @@ export class FormValidator {
   }
 
   enableValidation() {
-    const inputs = Array.from(this._form.querySelectorAll(this._config.inputSelector))
-    const formSubmitButtonElement = this._form.querySelector(this._config.submitButtonSelector)
+    this._inputs = Array.from(this._form.querySelectorAll(this._config.inputSelector))
+    this._formSubmitButtonElement = this._form.querySelector(this._config.submitButtonSelector)
     this._form.addEventListener('submit', this._handleFormSubmit)
-    inputs.forEach((input) => {
+    this._inputs.forEach((input) => {
       input.addEventListener('input', (evt) =>
               this._handleFormInput(evt, this._form, this._config.inputErrorClass,
-                      formSubmitButtonElement, this._config.inactiveButtonClass, inputs))
+                      this._formSubmitButtonElement, this._config.inactiveButtonClass, this._inputs))
     })
 
   }
