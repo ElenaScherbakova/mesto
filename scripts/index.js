@@ -25,7 +25,7 @@ const popupSubmitPlace = document.querySelector(".popup__button_plus")
 const formElements = Array.from(document.querySelectorAll('.popup__form'));
 
 
-const callForm = (form) => {
+const createValidator = (form) => {
   const formValidator = new FormValidator({
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
@@ -37,8 +37,8 @@ const callForm = (form) => {
   return formValidator
 }
 
-const formEditValidator = callForm(formEditProfile)
-const formPlaceValidator = callForm(formAddPlace)
+const formEditValidator = createValidator(formEditProfile)
+const formPlaceValidator = createValidator(formAddPlace)
 
 const handleSubmitProfileEditForm = (formEvent) => {
   formEvent.preventDefault();
