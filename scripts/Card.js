@@ -43,7 +43,6 @@ export class Card {
     return element
   };
 
-
 }
 
 
