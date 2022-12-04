@@ -1,6 +1,7 @@
 import {Card} from './Card.js'
 import {FormValidator} from './FormValidator.js'
 import {Section} from './Section.js'
+import PopupWithForm from "./PopupWithForm";
 
 
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
@@ -140,8 +141,14 @@ const cardsList = new Section({
   },
 }, '.elements');
 
+const popupForm = new PopupWithForm('.popup_type_edit', ({name, avocation}) => {
+  nameSpan.innerText = name;
+  avocationSpan.innerText = avocation;
+})
+
 const renderCenterPane = () => {
   cardsList.renderItems(initialCards)
 };
+
 
 renderCenterPane()

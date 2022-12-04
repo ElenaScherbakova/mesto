@@ -3,4 +3,11 @@ class UserInfo {
 
   }
 
+  getUserInfo() {
+
+  }
+
+  setUserInfo() {
+
+  }
 }

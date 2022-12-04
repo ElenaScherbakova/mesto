@@ -5,18 +5,25 @@ export default class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
     this._popupCloseButton = this._popup.querySelector('.popup__close');
-    this.closeEsc = this.closeEsc.bind(this)
+    this._handleEscClose = this._handleEscClose.bind(this)
     this.closePopupByOverlay = this.closePopupByOverlay.bind(this)
     this.handleClosePopup = this.handleClosePopup.bind(this)
   }
 
+  /**
+   Открытие попапа
+   */
   handleOpenPopup() {
     this._popup.classList.remove('popup_hidden') // класс hidden нужен для анимации и плавного открытия модалок
     this._popup.classList.add("popup_opened")
     this.setEventListeners()
   }
 
-  closeEsc(event) {
+  /**
+   Закрытие по кнопке Esc
+   */
+
+  _handleEscClose(event) {
     if (event.key === 'Escape') {
       this.handleClosePopup()
     }
@@ -28,27 +35,23 @@ export default class Popup {
     }
   }
 
+  /**
+   Закрытие попапа
+   */
   handleClosePopup() {
     this._popup.classList.remove("popup_opened")
     this._popup.classList.add('popup_hidden')
     this.removeEventListeners()
   }
 
-  /**
-   Закрытие по кнопке Esc
-   */
-  _handleEscClose() {
-
-  }
-
   setEventListeners() {
-    document.addEventListener('keydown', this.closeEsc);
+    document.addEventListener('keydown', this._handleEscClose);
     document.addEventListener('mousedown', this.closePopupByOverlay);
     this._popupCloseButton.addEventListener('click', this.handleClosePopup)
   }
 
   removeEventListeners() {
-    document.removeEventListener('keydown', this.closeEsc);
+    document.removeEventListener('keydown', this._handleEscClose);
     document.removeEventListener('mousedown', this.closePopupByOverlay);
     this._popupCloseButton.removeEventListener('click', this.handleClosePopup)
   }
