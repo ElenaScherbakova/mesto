@@ -4,15 +4,17 @@ export class Section {
     this._container = document.querySelector(containerSelector);
   }
 
+  renderItem(item) {
+    const cardElement = this._renderer(item)
+    this.addItem(cardElement)
+  }
+
   /**
    Отрисовка всего массива
    */
 
   renderItems(items) {
-    items.forEach((item) => {
-      const cardElement = this._renderer(item)
-      this.addItem(cardElement)
-    })
+    items.forEach(this.renderItem.bind(this))
   }
 
   addItem(cardElement) {

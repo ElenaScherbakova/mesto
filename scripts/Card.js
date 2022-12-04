@@ -1,17 +1,17 @@
 export class Card {
   _templateSelector;
-  data;
+  item;
 
-  constructor(templateSelector, data, onImgClick, onRemove) {
+  constructor(templateSelector, item, onImgClick, onRemove) {
     this._templateSelector = templateSelector;
-    this.data = data;
+    this.item = item;
     this._onImgClick = onImgClick
     this._onRemove = onRemove
     this._likeButton = () => {
       this.elementLike.classList.toggle('card__like_active') // ставит и убирает лайк
     }
     this._handleImageClick = () => {
-      this._onImgClick(this.data)
+      this._onImgClick(this.item)
     }
     this._removeItem = () => {
       this._onRemove(this._element)
@@ -35,9 +35,9 @@ export class Card {
     const elementName = element.querySelector('.card__text');
     this.elementImg = element.querySelector('.card__photo');
     this.removeButton = element.querySelector('.card__basket');
-    elementName.innerText = this.data.name; // меняет текст в заголовке
-    this.elementImg.src = this.data.link; // меняет ссылку на картинку
-    this.elementImg.alt = this.data.name;
+    elementName.innerText = this.item.name; // меняет текст в заголовке
+    this.elementImg.src = this.item.link; // меняет ссылку на картинку
+    this.elementImg.alt = this.item.name;
     this.elementLike = element.querySelector('.card__like')
     this._setEventListeners()
     return element
