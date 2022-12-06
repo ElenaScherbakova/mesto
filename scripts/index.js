@@ -3,6 +3,7 @@ import {FormValidator} from './FormValidator.js'
 import {Section} from './Section.js'
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
+import UserInfo from "./UserInfo.js";
 
 
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
@@ -34,10 +35,8 @@ createValidator(formAddPlace)
  */
 
 const openEditPopup = () => {
-  popupForm.handleOpenPopup({
-    name: nameSpan.innerText,
-    about: avocationSpan.innerText
-  })
+  popupEditForm.handleOpenPopup(
+          userNewInfo.getUserInfo())
 };
 
 const openPopupPlace = () => {
@@ -67,14 +66,23 @@ const cardsList = new Section({
   },
 }, '.elements');
 
-const popupForm = new PopupWithForm('.popup_type_edit', ({name, about}) => {
-  nameSpan.innerText = name;
-  avocationSpan.innerText = about;
+/**
+ экземпляр класса PopupWithForm для формы Редактировать профиль
+ */
+const popupEditForm = new PopupWithForm('.popup_type_edit', ({name, about}) => {
+  userNewInfo.setUserInfo(name, about)
 })
 
+/**
+ экземпляр класса PopupWithForm для формы Новое место
+ */
 const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
-  popupNewCard.renderItem(argument)
+  cardsList.renderItem(argument)
 })
+
+
+const userNewInfo = new UserInfo({userName: ".profile__title", userInfo: ".profile__subtitle"})
+
 
 const renderCenterPane = () => {
   cardsList.renderItems(initialCards)
