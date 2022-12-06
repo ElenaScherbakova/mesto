@@ -1,15 +1,14 @@
+import '../pages/index.css';
 import {Card} from './Card.js'
 import {FormValidator} from './FormValidator.js'
-import {Section} from './Section.js'
+import Section from './Section.js'
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 import UserInfo from "./UserInfo.js";
-
+import initialCards from './initialCards';
 
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
-const nameSpan = document.querySelector(".profile__title");
-const avocationSpan = document.querySelector(".profile__subtitle");
 const formEditProfile = document.getElementById("submit-form");
 const formAddPlace = document.getElementById("place-form");
 const list = document.querySelector('.elements');
