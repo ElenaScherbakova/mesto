@@ -6,7 +6,6 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit
     this._popupForm = this._popup.querySelector('.popup__form')
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this._submitButton = this._popupForm.querySelector('button[type="submit"]')
   }
 
   /**
@@ -31,7 +30,6 @@ export default class PopupWithForm extends Popup {
     inputList.forEach(input => {
       input.value = formValues[input.name];
     });
-    this._submitButton.disabled = true
   }
 
   handleClosePopup() {

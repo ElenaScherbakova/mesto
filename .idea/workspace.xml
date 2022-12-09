@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="webpack made">
+    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку Сохранить активной при пустых полях, а она должна быть неактивной. При этом у меня появляется возможность сохранять пустые карточки. - выполнено">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/PopupWithForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/PopupWithImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/Section.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Section.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +41,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Elena\WebstormProjects\mesto\src" />
+      <recent name="C:\Users\Elena\WebstormProjects\mesto\src\scripts\components" />
       <recent name="C:\Users\Elena\WebstormProjects\mesto\src\pages" />
     </key>
   </component>
@@ -58,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1670493886527</updated>
       <workItem from="1670493888243" duration="1731000" />
-      <workItem from="1670577182225" duration="2390000" />
+      <workItem from="1670577182225" duration="8726000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>
@@ -81,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670495444581</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку Сохранить активной при пустых полях, а она должна быть неактивной. При этом у меня появляется возможность сохранять пустые карточки. - выполнено">
+      <created>1670579649780</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670579649780</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="webpack made" />
-    <option name="LAST_COMMIT_MESSAGE" value="webpack made" />
+    <MESSAGE value="Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку Сохранить активной при пустых полях, а она должна быть неактивной. При этом у меня появляется возможность сохранять пустые карточки. - выполнено" />
+    <option name="LAST_COMMIT_MESSAGE" value="Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку Сохранить активной при пустых полях, а она должна быть неактивной. При этом у меня появляется возможность сохранять пустые карточки. - выполнено" />
   </component>
 </project>

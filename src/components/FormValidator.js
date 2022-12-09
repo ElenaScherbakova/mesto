@@ -89,4 +89,11 @@ export class FormValidator {
 
   }
 
+  resetErrors() {
+    this._inputs.forEach((input) => {
+      const errorElement = this._form.querySelector(`.input-error-${input.name}`);
+      this._hideInputError(input, errorElement, this._config.inputErrorClass)
+    })
+  }
+
 }

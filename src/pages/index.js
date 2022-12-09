@@ -1,10 +1,10 @@
 import './index.css';
-import {Card} from '../scripts/Card.js'
-import {FormValidator} from '../scripts/FormValidator.js'
-import Section from '../scripts/Section.js'
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import UserInfo from "../scripts/UserInfo.js";
+import {Card} from '../components/Card.js'
+import {FormValidator} from '../components/FormValidator.js'
+import Section from '../components/Section.js'
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 import initialCards from '../scripts/initialCards';
 
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
@@ -25,8 +25,8 @@ const createValidator = (form) => {
   formValidator.enableValidation()
   return formValidator
 }
-createValidator(formEditProfile)
-createValidator(formAddPlace)
+const validateEditProfile = createValidator(formEditProfile)
+const validateAddPlace = createValidator(formAddPlace)
 
 
 /**
@@ -36,13 +36,17 @@ createValidator(formAddPlace)
 const openEditPopup = () => {
   popupEditForm.handleOpenPopup(
           userNewInfo.getUserInfo())
+  validateEditProfile.resetErrors()
+  validateEditProfile.disableButton()
 };
 
 const openPopupPlace = () => {
   popupNewCard.handleOpenPopup({
-    name: "",
+    title: "",
     link: ""
   })
+  validateAddPlace.resetErrors()
+  validateAddPlace.disableButton()
 };
 
 buttonOpenEditPopup.addEventListener("click", openEditPopup);
