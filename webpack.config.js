@@ -8,11 +8,11 @@ module.exports = {
     clean: true, // очищаем папку dist при сборке
                  // https://webpack.js.org/guides/output-management/#cleaning-up-the-dist-folder
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js', // имя файла после зброкм
+    filename: 'main.js', // имя файла после сброки
     publicPath: '' // не знаю зачем, но явно надо
   }, // указали в какой файл будет собираться весь js и дали ему имя
   optimization: {
-    minimize: true, // уменьшаем развмеры файлов. Удаляем пробелы и переносы строк
+    minimize: true, // уменьшаем размеры файлов. Удаляем пробелы и переносы строк
   },
   mode: 'development', // добавили режим разработчика
   devServer: {
@@ -43,7 +43,7 @@ module.exports = {
         use: 'html-loader',
       },
       {
-        // только шрифиты
+        // только шрифты
         test: /\.(woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {

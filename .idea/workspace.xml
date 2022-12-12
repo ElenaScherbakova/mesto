@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="Во всех формах следует удалять ошибки валидации при их открытии. - выполнено">
+    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="Замечания ревьювера выполнены">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +64,12 @@
       <option name="presentableId" value="Default" />
       <updated>1670493886527</updated>
       <workItem from="1670493888243" duration="1731000" />
-      <workItem from="1670577182225" duration="8814000" />
+      <workItem from="1670577182225" duration="8909000" />
+      <workItem from="1670659063127" duration="811000" />
+      <workItem from="1670747003075" duration="41000" />
+      <workItem from="1670747122426" duration="628000" />
+      <workItem from="1670849828385" duration="21000" />
+      <workItem from="1670849861285" duration="3442000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>
@@ -93,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670596907031</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Замечания ревьювера выполнены">
+      <created>1670597042586</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670597042586</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +134,7 @@
     <MESSAGE value="webpack made" />
     <MESSAGE value="Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку Сохранить активной при пустых полях, а она должна быть неактивной. При этом у меня появляется возможность сохранять пустые карточки. - выполнено" />
     <MESSAGE value="Во всех формах следует удалять ошибки валидации при их открытии. - выполнено" />
-    <option name="LAST_COMMIT_MESSAGE" value="Во всех формах следует удалять ошибки валидации при их открытии. - выполнено" />
+    <MESSAGE value="Замечания ревьювера выполнены" />
+    <option name="LAST_COMMIT_MESSAGE" value="Замечания ревьювера выполнены" />
   </component>
 </project>
