@@ -74,25 +74,42 @@ const cardsList = new Section({
  */
 const popupEditForm = new PopupWithForm('.popup_type_edit', ({name, about}) => {
   api.updateUser(name, about)
-  userNewInfo.setUserInfo(name, about)
+      .then( (user) => {
+        userNewInfo.setUserInfo(user.name, user.about)
+      })
+      .catch((err) => {
+        console.log(err); // выведем ошибку в консоль
+      })
 })
 
 /**
  экземпляр класса PopupWithForm для создания новой карточки
  */
 const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
-  cardsList.renderItem(argument)
   api.createNewCard(argument.name, argument.link)
+      .then( card => {
+        cardsList.renderItem(card)
+      })
+      .catch((err) => {
+        console.log(err); // выведем ошибку в консоль
+      })
 })
 
 const userNewInfo = new UserInfo({userName: ".profile__title", userInfo: ".profile__subtitle"})
 
-api.getUser().then((user) => {
-  userNewInfo.setUserInfo(user.name, user.about)//TODO передать поля юзера правильно
+api.getUser()
+    .then((user) => {
+      userNewInfo.setUserInfo(user.name, user.about)//TODO передать поля юзера правильно
+    }) // получили данные пользователя
+    .catch( (e) => {
+      console.error(e)
+    })
+api.getInitialCards()
+    .then((initialCards) => {
+      cardsList.renderItems(initialCards)
+    }) // получили карточки с api
+    .catch((err) => {
+      console.log(err); // выведем ошибку в консоль
+    })
 
-}) // получили данные пользователя
-
-api.getInitialCards().then((initialCards) => {
-  cardsList.renderItems(initialCards)
-}) // получили карточки с api
 

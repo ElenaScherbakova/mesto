@@ -14,6 +14,7 @@ module.exports = {
   optimization: {
     minimize: true, // уменьшаем размеры файлов. Удаляем пробелы и переносы строк
   },
+  devtool: 'source-map',
   mode: 'development', // добавили режим разработчика
   devServer: {
     watchFiles: ['./**'],
