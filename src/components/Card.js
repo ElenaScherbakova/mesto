@@ -1,3 +1,5 @@
+import api from "./API";
+
 export class Card {
   _templateSelector;
   item;
@@ -14,6 +16,7 @@ export class Card {
       this._onImgClick(this.item)
     }
     this._removeItem = () => {
+      api.removeCard(this.item._id)
       this._onRemove(this._element)
     }
   }

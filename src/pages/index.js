@@ -5,7 +5,7 @@ import Section from '../components/Section.js'
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import initialCards from '../scripts/initialCards';
+import api from "../components/API";
 
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
@@ -42,7 +42,7 @@ const openEditPopup = () => {
 
 const openPopupPlace = () => {
   popupNewCard.handleOpenPopup({
-    title: "",
+    name: "",
     link: ""
   })
   validateAddPlace.resetErrors()
@@ -73,23 +73,26 @@ const cardsList = new Section({
  экземпляр класса PopupWithForm для формы Редактировать профиль
  */
 const popupEditForm = new PopupWithForm('.popup_type_edit', ({name, about}) => {
+  api.updateUser(name, about)
   userNewInfo.setUserInfo(name, about)
 })
 
 /**
- экземпляр класса PopupWithForm для формы Новое место
+ экземпляр класса PopupWithForm для создания новой карточки
  */
 const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
   cardsList.renderItem(argument)
+  api.createNewCard(argument.name, argument.link)
 })
-
 
 const userNewInfo = new UserInfo({userName: ".profile__title", userInfo: ".profile__subtitle"})
 
+api.getUser().then((user) => {
+  userNewInfo.setUserInfo(user.name, user.about)//TODO передать поля юзера правильно
 
-const renderCenterPane = () => {
+}) // получили данные пользователя
+
+api.getInitialCards().then((initialCards) => {
   cardsList.renderItems(initialCards)
-};
+}) // получили карточки с api
 
-
-renderCenterPane()
