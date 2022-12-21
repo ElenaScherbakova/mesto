@@ -7,6 +7,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import api from "../components/API";
 import PopupWithConfirmation from "../components/PopupWithConfirmation";
+import PopupChangeAvatar from "../components/PopupChangeAvatar";
 
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
@@ -94,6 +95,19 @@ const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
       .catch((err) => {
         console.log(err); // выведем ошибку в консоль
       })
+})
+
+/**
+ экземпляр класса PopupWithAgreement для смены аватара
+ */
+const popupNewAvatar = new PopupChangeAvatar('.popup_type_agreement', (argument) => {
+ /*   api.changeAvatar (argument.link)
+        .then( card => {
+            cardsList.renderItem(card)
+        })
+        .catch((err) => {
+            console.log(err); // выведем ошибку в консоль
+        })*/
 })
 
 

@@ -49,6 +49,14 @@ class Api {
         }).then(this._getJSON)
     }
 
+    changeAvatar (link) {
+        return  fetch(`${this.options.baseUrl}/users/me/avatar`, {
+            method: 'PATCH',
+            headers: this.options.headers,
+            body: JSON.stringify({ link })
+        }).then(this._getJSON)
+    }
+
     likeCard(cardID, isLike) {
         return  fetch(`${this.options.baseUrl}/cards/${cardId}/likes`, {
             method : isLike
