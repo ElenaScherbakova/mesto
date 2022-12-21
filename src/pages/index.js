@@ -108,7 +108,7 @@ const popupNewAvatar = new PopupChangeAvatar('.popup_type_agreement', (argument)
         .catch((err) => {
             console.log(err); // выведем ошибку в консоль
         })*/
-})
+}, '.profile__image')
 
 
 const userNewInfo = new UserInfo({userName: ".profile__title", userInfo: ".profile__subtitle"})

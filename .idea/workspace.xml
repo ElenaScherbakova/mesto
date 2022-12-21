@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="сделан попап confirmation">
-      <change afterPath="$PROJECT_DIR$/src/components/PopupChangeAvatar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__image/profile__image.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__image/profile__image.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/API.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopupWithAgreement.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupChangeAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupChangeAvatar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +96,7 @@
       <workItem from="1671180542486" duration="151000" />
       <workItem from="1671437019730" duration="13060000" />
       <workItem from="1671520860438" duration="7884000" />
-      <workItem from="1671611965748" duration="10264000" />
+      <workItem from="1671611965748" duration="10631000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>
@@ -185,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671618183124</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="сделан попап confirmation">
+      <created>1671630437935</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1671630437935</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

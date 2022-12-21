@@ -5,14 +5,14 @@ export default class PopupChangeAvatar extends Popup {
         super(popupSelector)
         this._handleClick = handleClick
         this._image = document.querySelector(imageSelector)
-        const inputUrl = this._popup.querySelector('.popup__input');
-        this._image.addEventListener('click', this._handleClick)
+        this._inputUrl = this._popup.querySelector('.popup__input');
+        this._image.addEventListener('click', this.handleOpenPopup.bind(this))
 
     }
 
     handleOpenPopup() {
         super.handleOpenPopup()
-        this.input.value = this._image.src
+        this._inputUrl.value = this._image.src
 
     }
 }
