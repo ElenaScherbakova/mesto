@@ -6,6 +6,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import api from "../components/API";
+import PopupWithConfirmation from "../components/PopupWithConfirmation";
 
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
@@ -94,6 +95,7 @@ const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
         console.log(err); // выведем ошибку в консоль
       })
 })
+
 
 const userNewInfo = new UserInfo({userName: ".profile__title", userInfo: ".profile__subtitle"})
 

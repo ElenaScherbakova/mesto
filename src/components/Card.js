@@ -1,4 +1,5 @@
 import api from "./API";
+import PopupWithConfirmation from "./PopupWithConfirmation";
 
 export class Card {
   _templateSelector;
@@ -15,9 +16,18 @@ export class Card {
     this._handleImageClick = () => {
       this._onImgClick(this.item)
     }
+    this._handleDeleteCardClickTrash = () => {
+      this._onImgClick(this.item)
+    }
     this._removeItem = () => {
-      api.removeCard(this.item._id)
-      this._onRemove(this._element)
+      /**
+       экземпляр класса PopupWithConfirmation для формы Подтверждения
+       */
+      const popupConfirmation = new PopupWithConfirmation ('.popup_type_confirmation', () => {
+        api.removeCard(this.item._id)
+            .then( () => this._onRemove(this._element))
+      })
+      popupConfirmation.handleOpenPopup()
     }
   }
 

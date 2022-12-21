@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="добавленно появление ошибок">
-      <change afterPath="$PROJECT_DIR$/src/blocks/popup/__crisper/popup__crisper.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PopupWithConfirmation.js" afterDir="false" />
+    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="начат попап confirmation">
+      <change afterPath="$PROJECT_DIR$/src/blocks/popup/__buttons_container/popup__buttons_container.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blocks/popup/__case/popup__case.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PopupWithAgreement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__crisper/popup__crisper.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__crisper/popup__crisper.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__title/popup__title.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__title/popup__title.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupWithConfirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithConfirmation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -48,20 +55,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Elena\WebstormProjects\mesto\src" />
@@ -96,7 +103,8 @@
       <workItem from="1670849861285" duration="3514000" />
       <workItem from="1671180542486" duration="151000" />
       <workItem from="1671437019730" duration="13060000" />
-      <workItem from="1671520860438" duration="3623000" />
+      <workItem from="1671520860438" duration="7884000" />
+      <workItem from="1671611965748" duration="4196000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>
@@ -168,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671456815812</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="начат попап confirmation">
+      <created>1671524835982</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1671524835982</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +209,7 @@
     <MESSAGE value="Замечания ревьювера выполнены" />
     <MESSAGE value="API" />
     <MESSAGE value="добавленно появление ошибок" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавленно появление ошибок" />
+    <MESSAGE value="начат попап confirmation" />
+    <option name="LAST_COMMIT_MESSAGE" value="начат попап confirmation" />
   </component>
 </project>
