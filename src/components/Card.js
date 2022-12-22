@@ -5,13 +5,15 @@ export class Card {
   _templateSelector;
   item;
 
-  constructor(templateSelector, item, onImgClick, onRemove) {
+  constructor(templateSelector, item, onImgClick, onRemove, onLike) {
     this._templateSelector = templateSelector;
     this.item = item;
     this._onImgClick = onImgClick
     this._onRemove = onRemove
+    this._onLike = onLike
     this._likeButton = () => {
       this.elementLike.classList.toggle('card__like_active') // ставит и убирает лайк
+      this._onLike()
     }
     this._handleImageClick = () => {
       this._onImgClick(this.item)
@@ -51,10 +53,25 @@ export class Card {
     elementName.innerText = this.item.name; // меняет текст в заголовке
     this.elementImg.src = this.item.link; // меняет ссылку на картинку
     this.elementImg.alt = this.item.name;
+    this._updateLikes ()
     this.elementLike = element.querySelector('.card__like')
     this._setEventListeners()
     return element
   };
+
+  _updateLikes () {
+    this.elementcounter = this._element.querySelector('.card__counter')
+    this.elementcounter.innerText = this.item.likes.length
+  }
+
+  _clickLikeRemove () {
+
+  }
+
+
+
+
+
 
 }
 

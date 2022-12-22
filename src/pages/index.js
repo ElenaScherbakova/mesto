@@ -33,7 +33,6 @@ const validateAddPlace = createValidator(formAddPlace)
 const validateAvatar = createValidator(formAvatar)
 
 
-
 /**
  * открытие первого попапа с именем и профессией
  */
@@ -48,7 +47,8 @@ const openEditPopup = () => {
 const openPopupPlace = () => {
   popupNewCard.handleOpenPopup({
     name: "",
-    link: ""
+    link: "",
+    likes:[]
   })
   validateAddPlace.resetErrors()
   validateAddPlace.disableButton()
@@ -68,7 +68,12 @@ const cardsList = new Section({
    создает карточку
    */
   renderer: (item) => {
-    const card = new Card("#place", item, popupImage.handleOpenPopup.bind(popupImage), removeItem)
+    const card = new Card(
+        "#place",
+        item,
+        popupImage.handleOpenPopup.bind(popupImage),
+        removeItem,
+        () => {})
     const cardElement = card.createItem();
     return cardElement
   },
