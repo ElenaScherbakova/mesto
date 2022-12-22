@@ -32,6 +32,9 @@ export default class PopupWithForm extends Popup {
     });
   }
 
+  /**
+   Закрытие попапа и сброс формы
+   */
   handleClosePopup() {
     super.handleClosePopup()
     this._popupForm.reset()

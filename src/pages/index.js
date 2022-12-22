@@ -13,6 +13,7 @@ const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const formEditProfile = document.getElementById("submit-form");
 const formAddPlace = document.getElementById("place-form");
+const formAvatar = document.getElementById("avatar-form");
 const list = document.querySelector('.elements');
 
 
@@ -29,6 +30,8 @@ const createValidator = (form) => {
 }
 const validateEditProfile = createValidator(formEditProfile)
 const validateAddPlace = createValidator(formAddPlace)
+const validateAvatar = createValidator(formAvatar)
+
 
 
 /**
@@ -101,21 +104,26 @@ const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
  экземпляр класса PopupWithAgreement для смены аватара
  */
 const popupNewAvatar = new PopupChangeAvatar('.popup_type_agreement', (argument) => {
- /*   api.changeAvatar (argument.link)
-        .then( card => {
-            cardsList.renderItem(card)
+    api.changeAvatar (argument.url)
+        .then( user => {
+            userNewInfo.setAvatar(user.avatar)
         })
         .catch((err) => {
             console.log(err); // выведем ошибку в консоль
-        })*/
+        })
 }, '.profile__image')
 
 
-const userNewInfo = new UserInfo({userName: ".profile__title", userInfo: ".profile__subtitle"})
+const userNewInfo = new UserInfo({
+    userName: ".profile__title",
+    userInfo: ".profile__subtitle",
+    userAvatar: ".profile__image"
+})
 
 api.getUser()
     .then((user) => {
-      userNewInfo.setUserInfo(user.name, user.about)//TODO передать поля юзера правильно
+      userNewInfo.setUserInfo(user.name, user.about)
+      userNewInfo.setAvatar(user.avatar)
     }) // получили данные пользователя
     .catch( (e) => {
       console.error(e)

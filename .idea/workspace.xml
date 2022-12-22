@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="сделан попап confirmation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/API.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormValidator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PopupChangeAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupChangeAvatar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupWithConfirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithConfirmation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +102,8 @@
       <workItem from="1671180542486" duration="151000" />
       <workItem from="1671437019730" duration="13060000" />
       <workItem from="1671520860438" duration="7884000" />
-      <workItem from="1671611965748" duration="10631000" />
+      <workItem from="1671611965748" duration="10653000" />
+      <workItem from="1671696015383" duration="6597000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>
@@ -189,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671630437935</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="сделан попап confirmation">
+      <created>1671630801597</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1671630801597</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

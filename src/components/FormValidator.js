@@ -67,6 +67,12 @@ export class FormValidator {
 
   _handleFormInput(evt, form, inputErrorClass, formSubmitButtonElement, inactiveButtonClass, inputs) {
     const inputElement = evt.target
+    // элемент показывающий ошибку (далее errorElement) должен иметь класс построенный по принципу:
+    // если у инпута имя (аттрибут name) равен "my_input_name", то errorElement обязан иметь класс
+    // "input-error-my_input_name"
+    // пример:
+    // <input name='name1' />
+    // <span class="input-error-name1"></span>
     const errorElement = form.querySelector(`.input-error-${inputElement.name}`);
     this._checkInputValidity(inputElement, errorElement, inputErrorClass)
     const buttonState = this._hasInvalidInput(inputs)

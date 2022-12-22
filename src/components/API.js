@@ -33,9 +33,9 @@ class Api {
     }
 
     getUser() {
-       return fetch(`${this.options.baseUrl}/users/me`,
+       return fetch(`${this.options.userUrl}/users/me`,
            {
-               method: 'POST',
+               method: 'GET',
                headers: this.options.headers
            } ).then(this._getJSON)
 
@@ -49,11 +49,11 @@ class Api {
         }).then(this._getJSON)
     }
 
-    changeAvatar (link) {
+    changeAvatar (avatar) {
         return  fetch(`${this.options.baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this.options.headers,
-            body: JSON.stringify({ link })
+            body: JSON.stringify({ avatar })
         }).then(this._getJSON)
     }
 
@@ -70,6 +70,7 @@ class Api {
 
 const api = new Api({
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-56',
+    userUrl: 'https://nomoreparties.co/v1/cohort-56',
     headers: {
         authorization: '85969927-1936-42af-ae85-85e777a25d0e',
         'Content-Type': 'application/json'
