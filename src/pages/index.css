@@ -34,7 +34,7 @@
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__crisper/popup__crisper.css);
 @import url(../blocks/popup/__case/popup__case.css);
-@import url(../blocks/popup/__buttons_container/popup__buttons_container.css);
+@import url(../blocks/popup/__crisper_buttons/popup__crisper_buttons.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__card/popup__card.css);
