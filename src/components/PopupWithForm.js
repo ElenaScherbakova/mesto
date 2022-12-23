@@ -40,10 +40,19 @@ export default class PopupWithForm extends Popup {
     this._popupForm.reset()
   }
 
-  handleFormSubmit() {
+  /**
+   Обработчик сабмита формы, ставит на кнопку значение "сохранение", пока идет запрос
+   */
+  handleFormSubmit(e) {
     const values = this._getInputValues()
+    const submitButton = e.submitter
+    const title = submitButton.innerText
+    submitButton.innerText = 'Сохранение...'
     this._handleFormSubmit(values)
-    this.handleClosePopup()
+        .then( () => {
+          this.handleClosePopup()
+          submitButton.innerText = title
+        })
   }
 
   setEventListeners() {

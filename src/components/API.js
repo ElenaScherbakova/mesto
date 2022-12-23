@@ -2,10 +2,10 @@ class Api {
     constructor(options) {
         this.options = options
         this._getJSON = (res) => {
-            if (res.ok) {
+            if (res.ok) { // res.status == '200'
                 return res.json()
             } else {
-                throw new Error(`Ошибка: ${res.status}`)
+                return Promise.reject(res.status)
             }
         }
     }
@@ -57,9 +57,9 @@ class Api {
         }).then(this._getJSON)
     }
 
-    likeCard(cardID, isLike) {
+    likeCard(cardId, doLike) {
         return  fetch(`${this.options.baseUrl}/cards/${cardId}/likes`, {
-            method : isLike
+            method : doLike
                 ? 'PUT'
                 : 'DELETE',
             headers: this.options.headers

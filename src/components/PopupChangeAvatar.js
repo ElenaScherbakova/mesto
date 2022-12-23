@@ -5,8 +5,7 @@ export default class PopupChangeAvatar extends PopupWithForm {
     constructor(popupSelector, handleClick, imageSelector) {
         super(popupSelector, handleClick)
         this._image = document.querySelector(imageSelector)
-        this._image.addEventListener('click', this.handleOpenPopup.bind(this))
-
+        this._image.parentElement.addEventListener('click', this.handleOpenPopup.bind(this))
     }
 
     handleOpenPopup() {

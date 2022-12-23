@@ -10,6 +10,8 @@ export default class Popup {
     this.handleClosePopup = this.handleClosePopup.bind(this)
   }
 
+
+
   /**
    Открытие попапа
    */

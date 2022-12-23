@@ -9,6 +9,9 @@ import api from "../components/API";
 import PopupWithConfirmation from "../components/PopupWithConfirmation";
 import PopupChangeAvatar from "../components/PopupChangeAvatar";
 
+const storage = {
+    user: null
+}
 const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const formEditProfile = document.getElementById("submit-form");
@@ -30,7 +33,7 @@ const createValidator = (form) => {
 }
 const validateEditProfile = createValidator(formEditProfile)
 const validateAddPlace = createValidator(formAddPlace)
-const validateAvatar = createValidator(formAvatar)
+createValidator(formAvatar)
 
 
 /**
@@ -48,7 +51,9 @@ const openPopupPlace = () => {
   popupNewCard.handleOpenPopup({
     name: "",
     link: "",
-    likes:[]
+    likes:[],
+    _id: "",
+    owner: storage.user
   })
   validateAddPlace.resetErrors()
   validateAddPlace.disableButton()
@@ -72,8 +77,7 @@ const cardsList = new Section({
         "#place",
         item,
         popupImage.handleOpenPopup.bind(popupImage),
-        removeItem,
-        () => {})
+        removeItem, storage)
     const cardElement = card.createItem();
     return cardElement
   },
@@ -83,7 +87,7 @@ const cardsList = new Section({
  экземпляр класса PopupWithForm для формы Редактировать профиль
  */
 const popupEditForm = new PopupWithForm('.popup_type_edit', ({name, about}) => {
-  api.updateUser(name, about)
+  return api.updateUser(name, about)
       .then( (user) => {
         userNewInfo.setUserInfo(user.name, user.about)
       })
@@ -96,7 +100,7 @@ const popupEditForm = new PopupWithForm('.popup_type_edit', ({name, about}) => {
  экземпляр класса PopupWithForm для создания новой карточки
  */
 const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
-  api.createNewCard(argument.name, argument.link)
+  return api.createNewCard(argument.name, argument.link)
       .then( card => {
         cardsList.renderItem(card)
       })
@@ -108,14 +112,15 @@ const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
 /**
  экземпляр класса PopupWithAgreement для смены аватара
  */
-const popupNewAvatar = new PopupChangeAvatar('.popup_type_agreement', (argument) => {
-    api.changeAvatar (argument.url)
+ new PopupChangeAvatar('.popup_type_agreement', (argument) => {
+    return api.changeAvatar (argument.url)
         .then( user => {
             userNewInfo.setAvatar(user.avatar)
         })
         .catch((err) => {
             console.log(err); // выведем ошибку в консоль
         })
+
 }, '.profile__image')
 
 
@@ -125,10 +130,16 @@ const userNewInfo = new UserInfo({
     userAvatar: ".profile__image"
 })
 
+const updateUserInfo = () => {
+   if (storage.user !== null) {
+       userNewInfo.setUserInfo(storage.user.name, storage.user.about)
+       userNewInfo.setAvatar(storage.user.avatar)
+   }
+}
 api.getUser()
     .then((user) => {
-      userNewInfo.setUserInfo(user.name, user.about)
-      userNewInfo.setAvatar(user.avatar)
+        storage.user = user
+        updateUserInfo()
     }) // получили данные пользователя
     .catch( (e) => {
       console.error(e)
