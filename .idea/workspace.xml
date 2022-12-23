@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="сделаны попапы">
-      <change afterPath="$PROJECT_DIR$/src/blocks/card/__counter/card__counter.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/card/__heart/card__heart.css" afterDir="false" />
+    <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="добавила деплой через gh-pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/card/__like/card__like.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/card/__like/card__like.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__buttons_container/popup__buttons_container.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__crisper_buttons/popup__crisper_buttons.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,8 @@
       <workItem from="1671437019730" duration="13060000" />
       <workItem from="1671520860438" duration="7884000" />
       <workItem from="1671611965748" duration="10653000" />
-      <workItem from="1671696015383" duration="15108000" />
+      <workItem from="1671696015383" duration="15177000" />
+      <workItem from="1671778949638" duration="13491000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>
@@ -209,7 +206,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671703581936</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="начат счетчик лайков">
+      <created>1671720828773</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671720828773</updated>
+    </task>
+    <task id="LOCAL-00017" summary="сделан счетчик лайков, и статус &quot;сохранение&quot;">
+      <created>1671790272148</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671790272148</updated>
+    </task>
+    <task id="LOCAL-00018" summary="добавила деплой через gh-pages">
+      <created>1671798910204</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671798910204</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +256,9 @@
     <MESSAGE value="начат попап confirmation" />
     <MESSAGE value="сделан попап confirmation" />
     <MESSAGE value="сделаны попапы" />
-    <option name="LAST_COMMIT_MESSAGE" value="сделаны попапы" />
+    <MESSAGE value="начат счетчик лайков" />
+    <MESSAGE value="сделан счетчик лайков, и статус &quot;сохранение&quot;" />
+    <MESSAGE value="добавила деплой через gh-pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавила деплой через gh-pages" />
   </component>
 </project>
