@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="добавила деплой через gh-pages">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__buttons_container/popup__buttons_container.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__crisper_buttons/popup__crisper_buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__crisper_buttons/popup__crisper_buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__buttoncase/popup__buttoncase.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
     </list>
@@ -99,7 +98,7 @@
       <workItem from="1671520860438" duration="7884000" />
       <workItem from="1671611965748" duration="10653000" />
       <workItem from="1671696015383" duration="15177000" />
-      <workItem from="1671778949638" duration="13491000" />
+      <workItem from="1671778949638" duration="13738000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>
@@ -227,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671798910204</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="добавила деплой через gh-pages">
+      <created>1671799649095</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1671799649095</updated>
+    </task>
+    <task id="LOCAL-00020" summary="добавила деплой через gh-pages">
+      <created>1671799659547</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1671799659547</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
