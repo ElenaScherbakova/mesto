@@ -140,16 +140,13 @@ api.getUser()
     .then((user) => {
         storage.user = user
         updateUserInfo()
+        return api.getInitialCards()
     }) // получили данные пользователя
+    .then((initialCards) => {
+        cardsList.renderItems(initialCards)
+    }) // получили карточки с api
     .catch( (e) => {
       console.error(e)
-    })
-api.getInitialCards()
-    .then((initialCards) => {
-      cardsList.renderItems(initialCards)
-    }) // получили карточки с api
-    .catch((err) => {
-      console.log(err); // выведем ошибку в консоль
     })
 
 

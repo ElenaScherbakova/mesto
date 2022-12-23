@@ -4,8 +4,11 @@
   "description": "https://elenascherbakova.github.io/mesto/",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "deploy": "gh-pages -d dist",
+    "gh-clean": "npx gh-pages-clean"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
     "@babel/preset-env": "^7.20.2",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.0",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
     "postcss-loader": "^7.0.2",
