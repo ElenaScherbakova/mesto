@@ -7,7 +7,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import api from "../components/API";
 import PopupWithConfirmation from "../components/PopupWithConfirmation";
-import PopupChangeAvatar from "../components/PopupChangeAvatar";
 
 const storage = {
     user: null
@@ -16,6 +15,7 @@ const buttonOpenPlusPopup = document.querySelector(".profile__plus");
 const buttonOpenEditPopup = document.querySelector(".profile__edit");
 const formEditProfile = document.getElementById("submit-form");
 const formAddPlace = document.getElementById("place-form");
+const avatarImage = document.querySelector('.profile__image')
 const formAvatar = document.getElementById("avatar-form");
 const list = document.querySelector('.elements');
 
@@ -33,7 +33,7 @@ const createValidator = (form) => {
 }
 const validateEditProfile = createValidator(formEditProfile)
 const validateAddPlace = createValidator(formAddPlace)
-createValidator(formAvatar)
+const validateAvatar = createValidator(formAvatar)
 
 
 /**
@@ -59,14 +59,52 @@ const openPopupPlace = () => {
   validateAddPlace.disableButton()
 };
 
+const openAvatarChange = () => {
+  popupChangeAvatar.handleOpenPopup({
+    url: avatarImage.src
+  })
+  validateAvatar.resetErrors()
+  validateAvatar.disableButton()
+}
+
 buttonOpenEditPopup.addEventListener("click", openEditPopup);
 buttonOpenPlusPopup.addEventListener('click', openPopupPlace);
+avatarImage.parentElement.addEventListener('click', openAvatarChange)
 
-const removeItem = (element) => {
-  list.removeChild(element)
+const likeItem = (item, isLiked) => {
+    return api.likeCard(item._id, !isLiked)
+        .catch( status => {
+            if (status === 400) {
+                window.alert('Карточка была удалена')
+            }
+            return Promise.reject()
+        })
+}
+// нельзя делать членом класса, так как метод использует внутри дргуие классы.
+const removeItem = (element, id) => {
+  popupConfirmation.waitConfirmation()
+      .then( (remove) => {
+          if (remove) {
+            api.removeCard(id)
+                .then( () => removeItemElement(element))
+                .catch( (status) => console.error(`Ошибка удаления Карточки: ${status}`) )
+          }
+      })
+}
+
+const removeItemElement = (element) => {
+    list.removeChild(element)
 }
 
 const popupImage = new PopupWithImage('.popup_type_image')
+
+/**
+ экземпляр класса PopupWithConfirmation для формы Подтверждения
+ */
+const popupConfirmation = new PopupWithConfirmation ('.popup_type_confirmation', (id) => {
+    return api.removeCard(id)
+        .catch(e => console.error(`Невозможно удалить карточку. Ошибка ${e}`))
+})
 
 const cardsList = new Section({
   /**
@@ -77,7 +115,9 @@ const cardsList = new Section({
         "#place",
         item,
         popupImage.handleOpenPopup.bind(popupImage),
-        removeItem, storage)
+        removeItem,
+        likeItem,
+        storage)
     const cardElement = card.createItem();
     return cardElement
   },
@@ -110,19 +150,18 @@ const popupNewCard = new PopupWithForm('.popup_type_plus', (argument) => {
 })
 
 /**
- экземпляр класса PopupWithAgreement для смены аватара
+ экземпляр класса PopupWithForm для создания новой карточки
  */
- new PopupChangeAvatar('.popup_type_agreement', (argument) => {
-    return api.changeAvatar (argument.url)
+const popupChangeAvatar = new PopupWithForm('.popup_type_agreement', ({ url }) => {
+    return api.changeAvatar(url)
         .then( user => {
-            userNewInfo.setAvatar(user.avatar)
+            storage.user = user
+            avatarImage.src = user.avatar
         })
         .catch((err) => {
             console.log(err); // выведем ошибку в консоль
         })
-
-}, '.profile__image')
-
+})
 
 const userNewInfo = new UserInfo({
     userName: ".profile__title",
@@ -136,6 +175,11 @@ const updateUserInfo = () => {
        userNewInfo.setAvatar(storage.user.avatar)
    }
 }
+// Нельзя использовать Promise.all, так как если провалится один из запросов,
+// весь Promise.all будет rejected. нельзя так же испольовать Promise.allSettled
+// так как если запрос на user/me провалится, то запрос на карточки выполнится все равно.
+// В текущей реализации отобразитсья хотя бы информация о пользователе.
+
 api.getUser()
     .then((user) => {
         storage.user = user

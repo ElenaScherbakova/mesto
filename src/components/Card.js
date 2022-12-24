@@ -5,31 +5,28 @@ export class Card {
   _templateSelector;
   item;
 
-  constructor(templateSelector, item, onImgClick, onRemove, storage) {
+  constructor(templateSelector, item, onImgClick, onRemove, onLike, storage) {
     this._templateSelector = templateSelector;
     this.item = item;
     this._onImgClick = onImgClick
     this._onRemove = onRemove
+    this._onLike = onLike
     this._storage = storage
+
     this._likeButton = () => {
-      this._onLike()
+      this._onLike(this.item, this._isCurrentUserLiked())
+          .then( card => {
+            this.item = card
+            this._updateLikes()
+          })
     }
+
     this._handleImageClick = () => {
       this._onImgClick(this.item)
     }
-    this._handleDeleteCardClickTrash = () => {
-      this._onImgClick(this.item)
-    }
-    this._removeItem = () => {
-      /**
-       экземпляр класса PopupWithConfirmation для формы Подтверждения
-       */
-      const popupConfirmation = new PopupWithConfirmation ('.popup_type_confirmation', () => {
-        api.removeCard(this.item._id)
-            .then( () => this._onRemove(this._element))
-      })
 
-      popupConfirmation.handleOpenPopup()
+    this._removeItem = () => {
+      this._onRemove(this._element, this.item._id)
     }
 
     this._isCurrentUserLiked = () => {
@@ -40,20 +37,6 @@ export class Card {
 
     this._isOwner = () => {
       return this.item.owner._id === this._storage.user._id
-    }
-
-    this._onLike = () => {
-      api.likeCard(this.item._id, !this._isCurrentUserLiked())
-          .then( card => {
-            this.item = card
-            this._updateLikes()
-          })
-          .catch( status => {
-            if (status === 400) {
-              this._onRemove(this._element)
-              window.alert('Карточка была удалена')
-            }
-          })
     }
   }
 
@@ -100,15 +83,6 @@ export class Card {
       this.elementLike.classList.remove('card__like_active')
     }
   }
-
-  _clickLikeRemove () {
-
-  }
-
-
-
-
-
 
 }
 

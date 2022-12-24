@@ -1,12 +1,12 @@
-.popup__buttons_container {
+.popup__buttoncase {
     display: flex;
     flex-direction: column;
     margin: 0 36px;
 }
 
 
-@media screen and (max-width: 850px) {
-    .popup__buttons_container {
+@media screen and (max-width: 450px) {
+    .popup__buttoncase {
         margin: 0 22px;
     }
 }
