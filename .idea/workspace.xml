@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da259d48-3c47-44a3-af36-606f992a6e92" name="Changes" comment="добавила деплой через gh-pages">
-      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__crisper_buttons/popup__crisper_buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__buttoncase/popup__buttoncase.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Section.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Section.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +101,8 @@
       <workItem from="1671611965748" duration="10653000" />
       <workItem from="1671696015383" duration="15177000" />
       <workItem from="1671778949638" duration="13738000" />
+      <workItem from="1672078000006" duration="542000" />
+      <workItem from="1672078638248" duration="3954000" />
     </task>
     <task id="LOCAL-00001" summary="webpack made">
       <created>1670494189784</created>

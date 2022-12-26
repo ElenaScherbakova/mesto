@@ -21,5 +21,8 @@ export default class Section {
     this._container.prepend(cardElement)
   } //принимает DOM-элемент и добавляет его в контейнер
 
+  removeItem(element) {
+    this._container.removeChild(element)
+  }
 }
 

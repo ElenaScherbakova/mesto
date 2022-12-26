@@ -17,8 +17,6 @@ const formEditProfile = document.getElementById("submit-form");
 const formAddPlace = document.getElementById("place-form");
 const avatarImage = document.querySelector('.profile__image')
 const formAvatar = document.getElementById("avatar-form");
-const list = document.querySelector('.elements');
-
 
 const createValidator = (form) => {
   const formValidator = new FormValidator({
@@ -71,11 +69,15 @@ buttonOpenEditPopup.addEventListener("click", openEditPopup);
 buttonOpenPlusPopup.addEventListener('click', openPopupPlace);
 avatarImage.parentElement.addEventListener('click', openAvatarChange)
 
-const likeItem = (item, isLiked) => {
+const likeItem = (item, element, isLiked) => {
+    // если на момент лайка, по какой то причине карточка уже не существует.
+    // то нужно показать сообщение об ошибке и удалить карту из листа.
+    // при лайке на удаленную карточку, сервер присылает 400 (а не 404) с пустым объектом в качестве тела.
     return api.likeCard(item._id, !isLiked)
         .catch( status => {
             if (status === 400) {
                 window.alert('Карточка была удалена')
+                cardsList.removeItem(element)
             }
             return Promise.reject()
         })
@@ -86,14 +88,10 @@ const removeItem = (element, id) => {
       .then( (remove) => {
           if (remove) {
             api.removeCard(id)
-                .then( () => removeItemElement(element))
+                .then( () => cardsList.removeItem(element))
                 .catch( (status) => console.error(`Ошибка удаления Карточки: ${status}`) )
           }
       })
-}
-
-const removeItemElement = (element) => {
-    list.removeChild(element)
 }
 
 const popupImage = new PopupWithImage('.popup_type_image')
@@ -101,10 +99,7 @@ const popupImage = new PopupWithImage('.popup_type_image')
 /**
  экземпляр класса PopupWithConfirmation для формы Подтверждения
  */
-const popupConfirmation = new PopupWithConfirmation ('.popup_type_confirmation', (id) => {
-    return api.removeCard(id)
-        .catch(e => console.error(`Невозможно удалить карточку. Ошибка ${e}`))
-})
+const popupConfirmation = new PopupWithConfirmation ('.popup_type_confirmation')
 
 const cardsList = new Section({
   /**

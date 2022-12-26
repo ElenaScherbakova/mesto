@@ -1,4 +1,4 @@
-import api from "./API";
+ import api from "./API";
 import PopupWithConfirmation from "./PopupWithConfirmation";
 
 export class Card {
@@ -13,8 +13,13 @@ export class Card {
     this._onLike = onLike
     this._storage = storage
 
+    // вся логика и работа с АПИ происходит снаружи.
+    // Класс Card после обновления на сервере должен получить обновленный объект карты, чтобы this.item содержал
+    // актуальный объект.
+    // после получения json с сервера, карточка должны отобразить актуальное состояние.
+    // для этого у карточки есть свой метод this._updateLikes. он же используется при создании карточки.
     this._likeButton = () => {
-      this._onLike(this.item, this._isCurrentUserLiked())
+      this._onLike(this.item, this._element, this._isCurrentUserLiked())
           .then( card => {
             this.item = card
             this._updateLikes()
