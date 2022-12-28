@@ -69,15 +69,16 @@ buttonOpenEditPopup.addEventListener("click", openEditPopup);
 buttonOpenPlusPopup.addEventListener('click', openPopupPlace);
 avatarImage.parentElement.addEventListener('click', openAvatarChange)
 
-const likeItem = (item, element, isLiked) => {
+const likeItem = (card) => {
     // если на момент лайка, по какой то причине карточка уже не существует.
     // то нужно показать сообщение об ошибке и удалить карту из листа.
     // при лайке на удаленную карточку, сервер присылает 400 (а не 404) с пустым объектом в качестве тела.
-    return api.likeCard(item._id, !isLiked)
+    api.likeCard(card.getCardId(), !card.isCurrentUserLiked())
+        .then((item) => card.updateItem(item))
         .catch( status => {
             if (status === 400) {
                 window.alert('Карточка была удалена')
-                cardsList.removeItem(element)
+                cardsList.removeItem(card.getCardElement())
             }
             return Promise.reject()
         })

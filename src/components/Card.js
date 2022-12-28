@@ -13,17 +13,8 @@ export class Card {
     this._onLike = onLike
     this._storage = storage
 
-    // вся логика и работа с АПИ происходит снаружи.
-    // Класс Card после обновления на сервере должен получить обновленный объект карты, чтобы this.item содержал
-    // актуальный объект.
-    // после получения json с сервера, карточка должны отобразить актуальное состояние.
-    // для этого у карточки есть свой метод this._updateLikes. он же используется при создании карточки.
     this._likeButton = () => {
-      this._onLike(this.item, this._element, this._isCurrentUserLiked())
-          .then( card => {
-            this.item = card
-            this._updateLikes()
-          })
+      this._onLike(this)
     }
 
     this._handleImageClick = () => {
@@ -34,7 +25,7 @@ export class Card {
       this._onRemove(this._element, this.item._id)
     }
 
-    this._isCurrentUserLiked = () => {
+    this.isCurrentUserLiked = () => {
       return this.item.likes.some((liker)=> {
         return liker._id === this._storage.user._id
       })
@@ -43,6 +34,14 @@ export class Card {
     this._isOwner = () => {
       return this.item.owner._id === this._storage.user._id
     }
+  }
+
+  getCardId() {
+    return this.item._id
+  }
+
+  getCardElement() {
+    return this._element
   }
 
   getTemplate() {
@@ -59,29 +58,36 @@ export class Card {
   createItem() {
     const element = this.getTemplate().cloneNode(true);
     this._element = element
-    const elementName = element.querySelector('.card__text');
+    this.elementName = element.querySelector('.card__text');
     const elementParent = element.querySelector('.card__place');
     this.elementImg = element.querySelector('.card__photo');
     this.removeButton = element.querySelector('.card__basket');
+    this.elementCounter = this._element.querySelector('.card__counter')
+    this.elementLike = element.querySelector('.card__like')
+
     if (!this._isOwner()) {
       elementParent.removeChild(this.removeButton)
     }
-    elementName.innerText = this.item.name; // меняет текст в заголовке
-    this.elementImg.src = this.item.link; // меняет ссылку на картинку
-    this.elementImg.alt = this.item.name;
-    this.elementLike = element.querySelector('.card__like')
-    this._updateLikes ()
+    this._updateItem()
     this._setEventListeners()
     return element
   };
 
+  updateItem(item) {
+    this.item = item
+    this._updateItem()
+  }
+
   /**
-   метод устанавливает актуальное значение лайков
+   * Метод актуализирует состояния карточки
    */
-  _updateLikes () {
-    this.elementcounter = this._element.querySelector('.card__counter')
-    this.elementcounter.innerText = this.item.likes.length
-    const isLiked = this._isCurrentUserLiked()
+  _updateItem () {
+    this.elementCounter.innerText = this.item.likes.length
+    this.elementName.innerText = this.item.name; // меняет текст в заголовке
+    this.elementImg.src = this.item.link; // меняет ссылку на картинку
+    this.elementImg.alt = this.item.name;
+
+    const isLiked = this.isCurrentUserLiked()
     if (isLiked) {
       this.elementLike.classList.add('card__like_active')
     } else {
